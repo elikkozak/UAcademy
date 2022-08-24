@@ -1,0 +1,22 @@
+#blue-box{
+    width: 300px;
+    height: 300px;
+    background-color :blue;
+}
+
+#vertical-line {
+    position: relative;
+
+    width: 20px;
+    height: 100%;
+    background-color: red;
+    margin-left:10%;
+}
+#horizontal-line {
+    position: relative;
+    height: 20px;
+    width: 100%;
+    background-color: red;
+    bottom: 85%;
+}
+

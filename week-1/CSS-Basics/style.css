@@ -1,0 +1,22 @@
+#container{
+  height: 55px;
+  width: calc(40%);
+  background-color: orange;
+  display: flex;
+}
+
+#first{
+  border: 2px solid black;
+  width: calc(100% / 3);
+}
+
+#second{
+  border: 2px solid black;
+  width: calc(100% / 3);
+}
+
+#third{
+  border: 2px solid black;
+  width: calc(100% / 3);
+}
+

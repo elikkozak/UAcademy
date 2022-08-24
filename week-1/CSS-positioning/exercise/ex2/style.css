@@ -1,0 +1,64 @@
+.purple-box{
+    position: relative;;
+        width: 300px;
+    height: 150px;
+    background-color :mediumslateblue;
+}
+
+#money {
+    font-weight: bold;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+  
+  #time {
+    font-weight: bold;
+
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .cols{
+    background-color: gainsboro ;
+    width: 20px;
+    bottom: 10px;
+
+
+}
+ #col1{
+    position: absolute;
+
+    height: 20px;
+    left: 10px;
+}
+
+#col2{
+    position: absolute;
+
+    height: 70px;
+
+    left: 50px;
+}
+#col3{
+    position: absolute;
+
+    height: 100px;
+    left: 90px;
+}#col4{
+    position: absolute;
+
+    height: 90px;
+    left: 130px;
+}#col5{
+    position: absolute;
+
+    height: 75px;
+    left: 170px;
+}
+#col6{
+    position: absolute;
+
+    height: 35px;
+    left: 210px;}

@@ -1,0 +1,117 @@
+#friends-container{
+    display: grid;
+    width: 100%;
+    
+    grid-gap: 120;
+    /* padding-left: 15px; */
+    padding-top:15px ;
+    grid-template-columns: 1fr;
+    background-color: blueviolet;
+    grid-area: f;
+
+
+}
+
+#friends-container > .friends-item{
+    height: min-content;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+#friends-container > .friends-logo{
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 15px;
+}
+
+#messages-container{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    /* background-color: gainsboro; */
+    grid-area: m;
+}
+
+#send-text-container{
+    display: grid;
+    grid-template-columns:6fr 1fr;
+    /* width: 100%; */
+    grid-area: s;
+    
+}
+
+#send-text-container > .send-btn{
+    width: 100%;
+    justify-self: end;
+    background-color:purple;
+    align-content: center;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+#send-text-container > input{
+    font-size: 20px;
+}
+
+#message-app{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 18fr 1fr;
+    grid-template-areas: 
+    "f m"
+    "f s";
+}
+
+.message-sent-item{
+    margin-top: 60px;
+font-size: 30px;
+    justify-self: right;
+    display: inline-grid;
+    justify-content:left;
+    height: 20%;
+    background-color: green;
+    align-content: center;
+    border-radius: 6px;
+        padding: 5px;
+    margin-right: 40px;
+    width:250px
+
+}
+.message-recieved-item{
+    margin-top: 60px;
+    margin-left: 40px;
+    border-radius: 6px;
+    font-size: 30px;
+
+
+    justify-self: start;
+    left:50px;
+    display: inline-grid;
+    height: 20%;
+    align-content: center;
+    border-radius: 10px;
+    background-color: gray;
+    padding: 5px;
+}
+.message-sent-item > .time{
+font-size: 13px;
+justify-self: end;
+display: inline;
+}
+
+.message-recieved-item >.time{
+    font-size: 13px;
+    justify-self: end;
+    display: inline;
+
+    }
+
+
+.friends-item{
+    height: 100%;
+}
+.friends-item:hover{
+    background-color: plum;
+
+}

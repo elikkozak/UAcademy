@@ -1,0 +1,23 @@
+#Trans{
+    block-size: inline;
+    opacity: 10%;
+}
+
+#TEXT{
+    background-color: green;
+    block-size: inline;
+}
+div{
+    background-image: url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/summer-flowers-star-flower-1648071187.jpg");
+     /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body, html {
+    height: 100%;
+  }
