@@ -13,8 +13,6 @@
   $("#post").on("click", post);
 
   $("body").on("click", ".delete-comment", function () {
-    console.log($(this).closest(".my-post").data().id);
-    console.log($(this).closest(".comments").data().id);
     tweeterModule.removeComment(
       $(this).closest(".my-post").data().id,
       $(this).closest(".comments").data().id
@@ -23,7 +21,6 @@
   });
 
   $("body").on("click", ".delete", function () {
-    console.log($(this).closest(".my-post").data().id);
     tweeterModule.removePost($(this).closest(".my-post").data().id);
     renderer.renderPosts(tweeterModule.postsGetter());
   });
