@@ -1,0 +1,17 @@
+{
+    "name": "Cow",
+    "weight":{
+      "count":750,
+      "unit":"Kilograms"
+    },
+    "location":["wild","cowshed"],
+    "calories":250,
+    "endangered": false,
+    "food": [
+      "grass","leafs","beer","grain","corn"
+    ],
+    "predators":[
+      "Wolfs","Dogs","Grizzly Bears","Bobcats","Coyotes"
+    ],
+    "deliciousLevel": 5
+  }

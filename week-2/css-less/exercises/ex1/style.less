@@ -1,0 +1,55 @@
+.container{
+  height: 450px;
+  width: 300px;
+  display: grid;
+  border-radius: 5px;
+  border: 5px silver solid;
+  grid-template-rows: 5fr 3fr;
+  grid-template-areas: "t" "b";
+  .top-container{
+    display: inline-block;
+    position: relative;
+    grid-area: t;
+    background-color: brown;
+    text-align: center;
+    color: white;
+    input{
+      border-radius: 5px;
+      background-color: white;
+      width: 80%;
+      display: inline-block;
+    
+
+    }
+    button {
+      background-color: white;
+      border-radius: 20px;
+      padding-left:40px;
+      padding-right: 40px;
+      font-size: 20px;
+
+
+    }
+  }
+  .bottom-container{
+    grid-area: b;
+    text-align: center;
+    
+  background-color: darkred;
+  align-content: center;
+    button{
+      border-radius: 10px;
+      position: relative;
+      top:40px;
+      padding: 16px 32px;
+    }
+    p{
+      color: white;
+      position: relative;
+      top:40px;
+      font-size: 20px;
+    }
+  }
+
+}
+
