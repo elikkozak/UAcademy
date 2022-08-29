@@ -1,0 +1,12 @@
+.container-data {
+  display: grid;
+  background-color: white;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.user-info {
+  background-color: silver;
+  margin: 5px;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}
