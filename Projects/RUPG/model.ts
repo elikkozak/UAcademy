@@ -1,4 +1,23 @@
-const PageModule = function(){
+class PageModule {
+    user: User
+    pokemon:Pokemon
+    quote:Quote
+    bacon:Bacon
+    constructor(){
+        this.user = new User( )
+        this.pokemon = new Pokemon()
+        this.quote = new Quote()
+        this.bacon = new Bacon()
+
+    }
+   async generate() {
+        this.user.generateUser()
+        this.pokemon.generatePokemon()
+        this.quote.generateQuote()
+        this.bacon.generateBacon()
+   }
+
+}
     class User{
         fullName:string
         city:string
@@ -21,7 +40,8 @@ const PageModule = function(){
             this.city = randomProfileObj.location.city
             this.state = randomProfileObj.location.state
             this.picture = randomProfileObj.picture.large
-            this.friendsArray = result.results.splice(0,1).filter((obj:any) => obj.name.first + " " + obj.name.last)
+            this.friendsArray = result.results.slice(1).map((obj:any) => obj.name.first + " " + obj.name.last)
+            console.log(result.results.slice(1))
         }
     }
     class Pokemon{
@@ -65,4 +85,3 @@ const PageModule = function(){
               this.baconIpsum = result[0]
         }
     }
-}
