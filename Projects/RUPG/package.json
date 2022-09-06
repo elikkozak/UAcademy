@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "jquery": "^3.6.1"
+  },
+  "name": "rupg",
+  "version": "1.0.0",
+  "main": "script.js",
+  "devDependencies": {
+    "@types/jquery": "^3.5.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
