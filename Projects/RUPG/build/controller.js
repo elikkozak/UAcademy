@@ -11,10 +11,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 (function () {
     const userGenerateBtn = $("#generate-usr-btn");
     const dataModule = new PageModule();
+    const viewModule = new Renderer();
     userGenerateBtn.on("click", function () {
         return __awaiter(this, void 0, void 0, function* () {
-            dataModule.generate();
-            console.log(dataModule);
+            dataModule.generate().then((result) => {
+                // console.log(result.user.friendsArray)
+                viewModule.renderPage(result);
+            });
         });
     });
 })();

@@ -17,10 +17,11 @@ class PageModule {
     }
     generate() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.user.generateUser();
-            this.pokemon.generatePokemon();
-            this.quote.generateQuote();
-            this.bacon.generateBacon();
+            yield this.user.generateUser();
+            yield this.pokemon.generatePokemon();
+            yield this.quote.generateQuote();
+            yield this.bacon.generateBacon();
+            return this;
         });
     }
 }
@@ -42,7 +43,6 @@ class User {
             this.state = randomProfileObj.location.state;
             this.picture = randomProfileObj.picture.large;
             this.friendsArray = result.results.slice(1).map((obj) => obj.name.first + " " + obj.name.last);
-            console.log(result.results.slice(1));
         });
     }
 }

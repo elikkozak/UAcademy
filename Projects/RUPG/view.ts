@@ -1,45 +1,54 @@
 class Renderer {
      renderPage(dataModule:PageModule) {
-        $(".container").empty()
-        this.renderProfile()
-        this.renderFriends()
-        this.renderPokemon()
-        this.renderBacon()
-        this.renderQuote()
+        this.cleanRendering()
+        this.renderProfile(dataModule.user)
+        this.renderFriends(dataModule.user.friendsArray)
+        this.renderPokemon(dataModule.pokemon)
+        this.renderBacon(dataModule.bacon)
+        this.renderQuote(dataModule.quote)
     }
-    renderQuote() {
+    renderQuote(quote:Quote) {
         const container = ".quote-container"
         const templateId = "#quote-template"
-        throw new Error("Method not implemented.")
+        this.handleBarHelper(templateId,quote,container)
+
     }
-    renderBacon() {
+    renderBacon(bacon:Bacon) {
         const container = ".meat-container"
         const templateId = "#meat-template"
-        throw new Error("Method not implemented.")
+        this.handleBarHelper(templateId,bacon,container)
     }
-    renderPokemon() {
+    renderPokemon(pokemon:Pokemon) {
         const container = ".pokemon-container"
         const templateId = "#pokemon-template"
-        throw new Error("Method not implemented.")
+        this.handleBarHelper(templateId,pokemon,container)
     }
-    renderFriends() {
+    renderFriends(friends:string[]) {
         const container = ".friends-container"
         const templateId = "#friends-template"
-        throw new Error("Method not implemented.")
+        this.handleBarHelper(templateId,friends,container)
+
     }
-    renderProfile() {
+    renderProfile(user:User) {
         const container = ".user-container"
         const templateId = "#user-template"
-        throw new Error("Method not implemented.")
+        this.handleBarHelper(templateId,user,container)
     }
 
-    handleBarHelper(templateId:string, data: User | Pokemon | Quote | Bacon ,container:string){
+    handleBarHelper(templateId:string, data: User | Pokemon | Quote | Bacon|string[] ,container:string){
         const source = $(`${templateId}`).html();
         const template = Handlebars.compile(source);
-        const newHTML = template(data);
+        const newHTML = template((Array.isArray(data))? {data}:data);
         // append our new html to the page
-        console.log(newHTML);
         $(`${container}`).append(newHTML);
+    }
+
+    cleanRendering(){
+        $(".user-container").empty()
+        $(".quote-container").empty()
+        $(".pokemon-container").empty()
+        $(".meat-container").empty()
+        $(".friends-container").empty()
     }
     
 

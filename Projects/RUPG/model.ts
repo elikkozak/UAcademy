@@ -11,10 +11,11 @@ class PageModule {
 
     }
    async generate() {
-        this.user.generateUser()
-        this.pokemon.generatePokemon()
-        this.quote.generateQuote()
-        this.bacon.generateBacon()
+        await this.user.generateUser()
+        await this.pokemon.generatePokemon()
+        await this.quote.generateQuote()
+        await this.bacon.generateBacon()
+        return this
    }
 
 }
@@ -41,7 +42,6 @@ class PageModule {
             this.state = randomProfileObj.location.state
             this.picture = randomProfileObj.picture.large
             this.friendsArray = result.results.slice(1).map((obj:any) => obj.name.first + " " + obj.name.last)
-            console.log(result.results.slice(1))
         }
     }
     class Pokemon{
