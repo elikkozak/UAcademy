@@ -17,6 +17,43 @@
   </head>
 
   <body>
+    <script id="friends-template" type="text/x-handlebars-template">
+      {{#each data}}
+        <div id="friend-name">
+          <p>{{this}}</p>
+        </div>
+
+      {{/each}}
+    </script>
+
+    <script id="user-template" type="text/x-handlebars-template">
+      <div class="user-info">
+        <img src={{picture}} id="profile-pic" alt="" />
+        <p class="profile-name">{{fullName}}
+          <br />
+          {{city}},
+          {{state}}</p>
+      </div>
+    </script>
+
+    <script id="pokemon-template" type="text/x-handlebars-template">
+      <img src={{picture}} id="pokemon-image" alt="" />
+      <p id="pokemon-text">Favourite Pokemon: {{name}} </p>
+    </script>
+
+    <script id="quote-template" type="text/x-handlebars-template">
+      <p id="quote-text">Favourite quote:<br />
+        "{{quote}}"<br />
+        -Kanye
+      </p>
+    </script>
+
+    <script id="meat-template" type="text/x-handlebars-template">
+      <p id="meat-text">About me:<br />
+        {{baconIpsum}}
+      </p>
+    </script>
+
     <div class="container">
       <div class="user-container"></div>
       <div class="quote-container"></div>
@@ -39,6 +76,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.js"></script>
 
     <script src="build/model.js"></script>
+    <script src="build/view.js"></script>
+
     <script src="build/controller.js"></script>
   </body>
 </html>
