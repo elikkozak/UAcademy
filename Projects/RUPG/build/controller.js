@@ -10,8 +10,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 (function () {
     const userGenerateBtn = $("#generate-usr-btn");
+    const saveUserBtn = $("#save-usr-btn");
+    const loadUserBtn = $("#load-usr-btn");
     const dataModule = new PageModule();
     const viewModule = new Renderer();
+    let isGeneratedUser = false;
+    let isSavedUser = false;
     Handlebars.registerHelper('toProperCase', function (str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     });
@@ -19,7 +23,19 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         return __awaiter(this, void 0, void 0, function* () {
             dataModule.generate().then((result) => {
                 viewModule.renderPage(result);
+                isGeneratedUser = true;
             });
         });
+    });
+    saveUserBtn.on("click", function () {
+        if (isGeneratedUser) {
+            localStorage.savedUser = JSON.stringify(dataModule);
+            isSavedUser = true;
+        }
+    });
+    loadUserBtn.on("click", function () {
+        if (isSavedUser) {
+            viewModule.renderPage(JSON.parse(localStorage.savedUser));
+        }
     });
 })();

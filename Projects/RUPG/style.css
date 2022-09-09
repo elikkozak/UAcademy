@@ -90,6 +90,18 @@ ul {
   left: 1vw;
 }
 
+#save-usr-btn {
+  position: fixed;
+  bottom: 1vw;
+  left: 25vw;
+}
+
+#load-usr-btn {
+  position: fixed;
+  bottom: 1vw;
+  left: 50vw;
+}
+
 button {
   width: 200px;
   height: 50px;
