@@ -38,7 +38,9 @@
 
     <script id="pokemon-template" type="text/x-handlebars-template">
       <img src={{picture}} id="pokemon-image" alt="" />
-      <p id="pokemon-text">Favourite Pokemon: {{name}} </p>
+      <p id="pokemon-text">Favourite Pokemon:
+        {{toProperCase name}}
+      </p>
     </script>
 
     <script id="quote-template" type="text/x-handlebars-template">
@@ -49,9 +51,10 @@
     </script>
 
     <script id="meat-template" type="text/x-handlebars-template">
-      <p id="meat-text">About me:<br />
+      <div id="meat-text">
+        <h4> About me:</h4>
         {{baconIpsum}}
-      </p>
+      </div>
     </script>
 
     <div class="container">
@@ -65,8 +68,8 @@
         <h4>Friends</h4>
         <div class="friends-container"></div>
       </div>
+      <button class="buttons" id="generate-usr-btn">Generate User</button>
     </div>
-    <button class="buttons" id="generate-usr-btn">Generate User</button>
 
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"

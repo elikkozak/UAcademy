@@ -42,7 +42,7 @@ class Renderer {
         // append our new html to the page
         $(`${container}`).append(newHTML);
     }
-
+  
     cleanRendering(){
         $(".user-container").empty()
         $(".quote-container").empty()
@@ -51,6 +51,4 @@ class Renderer {
         $(".friends-container").empty()
     }
     
-
-
 }

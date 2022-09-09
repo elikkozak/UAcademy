@@ -12,10 +12,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     const userGenerateBtn = $("#generate-usr-btn");
     const dataModule = new PageModule();
     const viewModule = new Renderer();
+    Handlebars.registerHelper('toProperCase', function (str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    });
     userGenerateBtn.on("click", function () {
         return __awaiter(this, void 0, void 0, function* () {
             dataModule.generate().then((result) => {
-                // console.log(result.user.friendsArray)
                 viewModule.renderPage(result);
             });
         });
