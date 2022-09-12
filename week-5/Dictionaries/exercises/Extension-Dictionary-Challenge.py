@@ -9,26 +9,32 @@ def isPalindrome(user_input):
     else:
         return False
 
+LOWER_A_ASCII = 97
+LOWER_Z_ASCII = 122
+
 def isLower(user_input):
-    for c in "".join(user_input):
-        if not 97 <= ord(c) <= 122:
+    for c in user_input:
+        if not LOWER_A_ASCII <= ord(c) <= LOWER_Z_ASCII:
             return False
     return True
 
+ZERO_ASCII = 48
+NINE_ASCII = 57
+
 def isDigit(user_input):
-    for c in "".join(user_input):
-        if not 48<= ord(c) <=57:
+    for c in user_input:
+        if not ZERO_ASCII <= ord(c) <= NINE_ASCII:
             return False
     return True
 
 def isLong(user_input):
-    return len(user_input)>15
+    return len(user_input) > 15
 
 def isEmpty(user_input):
     return user_input == ""
 
-def exit():
-    return
+def exit(_):
+    return "Exited successfully"
 
 user_input = input("Enter an input: ")
 print("The available operations are:")
@@ -43,21 +49,17 @@ operations = {
 for i, (k, v) in enumerate(operations.items()):
     print(f'{i+1} - {k}: {v}')
 operation_num = input("Please enter the number of operation you choose: ")
-def operation_manager(operation_num):
-    if operation_num == "1":
-        return isPalindrome(user_input)
-    elif operation_num == "2":
-        return isLower(user_input)
-    elif operation_num == "3":
-        return isDigit(user_input)
-    elif operation_num == "4":
-        return isLong(user_input)
-    elif operation_num == "5":
-        return isEmpty(user_input)
-    else:
-        return "Error illegal operation"
+operation_manager = {
+    "1": isPalindrome,
+    "2": isLower,
+    "3": isDigit,
+    "4": isLong,
+    "5": isEmpty,
+    "6": exit
+}
 
-if operation_num == "6":
-    print("Exited successfully")
-else:
-    print(f'Your answer is: {operation_manager(operation_num)}')
+
+answer_func = operation_manager.get(operation_num)
+msg = answer_func(operation_num) if answer_func is not None else "Error illegal operation"
+msg_format = 'Your answer is: ' if operation_num != "6" else '' 
+print(f'{msg_format}{msg}')

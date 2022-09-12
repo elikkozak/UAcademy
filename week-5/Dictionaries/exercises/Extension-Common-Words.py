@@ -30,7 +30,7 @@ line = "wee wee goo koo goo doo doo so go go yo yo yo yo fo zo"
 # print(get_5common(line))
 
 import heapq
-# return at most 5, most common words in a string 
+# return at most 5, the most common words in a string 
 def get_5common(string):
     ret_lst = []
     str_to_freq ={} 
