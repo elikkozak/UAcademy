@@ -39,7 +39,7 @@ def get_5common(string):
             str_to_freq[word] = 1
         else:
               str_to_freq[word] += 1
-    if (len(str_to_freq) <= 5):
+    if (len(str_to_freq) <= 5): #if number of different word is less or equal 5
         return str_to_freq
     lst_freq_and_str = []
     for key in str_to_freq:
