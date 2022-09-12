@@ -30,19 +30,22 @@ line = "wee wee goo koo goo doo doo so go go yo yo yo yo fo zo"
 # print(get_5common(line))
 
 import heapq
-
+# return at most 5, most common words in a string 
 def get_5common(string):
     ret_lst = []
     str_to_freq ={} 
-    for word in string.split(" "):
+    for word in string.split(" "): #map word to frequency in dict
         if word not in str_to_freq:
             str_to_freq[word] = 1
         else:
-            str_to_freq[word] += 1
+              str_to_freq[word] += 1
+    if (len(str_to_freq) <= 5):
+        return str_to_freq
     lst_freq_and_str = []
     for key in str_to_freq:
+        #heap is sorted by first value of tupel
         lst_freq_and_str.append((-str_to_freq[key],key)) #heapq is min Heap so mul * -1 freq for Max heap
-    heapq.heapify(lst_freq_and_str)                      #heap is sorted by first val
+    heapq.heapify(lst_freq_and_str)                      
     for i in range(5):
         element = heapq.heappop(lst_freq_and_str)
         ret_lst.append({element[1]:-element[0]})        #return freq back to positive
