@@ -60,6 +60,6 @@ operation_manager = {
 
 
 answer_func = operation_manager.get(operation_num)
-msg = answer_func(operation_num) if answer_func is not None else "Error illegal operation"
+msg = answer_func(user_input) if answer_func is not None else "Error illegal operation"
 msg_format = 'Your answer is: ' if operation_num != "6" else '' 
 print(f'{msg_format}{msg}')
