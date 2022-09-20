@@ -6,14 +6,6 @@ import requests
 import uvicorn
 
 app = FastAPI()
-# id_counter = 1
-# wonders = [
-#     {
-#         "ID": 1,
-#         "name": "The Great Pyramid",
-#         "location": "Giza"
-#     }
-# ]
 
 # Exercise 1
 
@@ -114,14 +106,7 @@ def get_5_most_popular_word():
         return {"ranking": f"{body}" }
     else:
         return "No words"
-        # @app.put('/wonders/{id}')
-        # async def update_wonder(id, name=Body(...), location=Body(...)):
-        #     for wonder in wonders:
-        #         if wonder["ID"] == int(id):
-        #             wonder["name"] = name
-        #             wonder["location"] = location
-        #             return "Updated"
-        #     return "Not Found"
+       
 
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
