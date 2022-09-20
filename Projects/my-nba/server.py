@@ -34,11 +34,12 @@ def create_player_obj(player_data):
     }
 
 
-@app.get("/{team}/{year}")
+@app.get("/players")
 def get_player_data(team,year):
     player_data_req = requests.get(f'http://data.nba.net/10s/prod/v1/{year}/players.json')
-    players_data_list =  [create_player_obj(player_data) for player_data in player_data_req.json()["league"]["standard"]]
-    return json.dumps(players_data_list)
+    filtered_data_by_team = filter(lambda player_data: player_data["teamId"] == team_to_ids[team],player_data_req.json()["league"]["standard"])
+    players_data_list =  [create_player_obj(player_data) for player_data in filtered_data_by_team]
+    return players_data_list
 
 
 if __name__ == "__main__":
