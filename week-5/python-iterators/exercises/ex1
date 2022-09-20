@@ -1,0 +1,15 @@
+# def my_enumerate(iterable, start=0):
+#     lst_of_tuples = [(start,value) for value in iterable ]
+#     return lst_of_tuples
+      
+
+def my_enumerate(iterable, start=0):
+    for element in iterable:
+        yield start, element
+        start += 1
+
+for index, elem in my_enumerate([10, 20, 30, 40]):
+  print(index, elem) 
+
+for index, elem in my_enumerate([10, 20, 30, 40], 10):
+  print(index, elem)  
