@@ -1,8 +1,8 @@
 import json
-from unicodedata import name
 import requests
 import uvicorn
 from fastapi import FastAPI
+
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
@@ -27,10 +27,14 @@ def get_player_jersey_num(player_data):
     return player_data.get("jersey")
 
 def create_player_obj(player_data):
+    name = get_player_name(player_data),
+    f_name,l_name = name.split()
     return {
-        "name":get_player_name(player_data),
+
+        "name":name,
         "pos":get_player_pos(player_data),
-        "jersey":get_player_jersey_num(player_data)
+        "jersey":get_player_jersey_num(player_data),
+        "img":f'https://nba-players.herokuapp.com/players/{f_name}/{l_name}'
     }
 
 
@@ -40,7 +44,7 @@ def get_player_data(team,year):
     filtered_data_by_team = filter(lambda player_data: player_data["teamId"] == team_to_ids[team],player_data_req.json()["league"]["standard"])
     players_data_list =  [create_player_obj(player_data) for player_data in filtered_data_by_team]
     return players_data_list
-
+    
 
 if __name__ == "__main__":
     uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
