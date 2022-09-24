@@ -39,7 +39,6 @@ def buy_item(item_name):
             if item["inventory"] > 0:
                 item["inventory"] -= 1
                 return {"success" : {"inventory": f"{item['inventory']}",  "price": f"{item['price']}"}},
-                # return {f'{item_name} amount left is {item["inventory"]}'}
             else:
                 return {"failed":"item not in stock"}
     return {"failed":"item not found"}

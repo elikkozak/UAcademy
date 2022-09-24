@@ -35,7 +35,7 @@ def get_word_count(word):
 #  Exercise 3
 
 
-@app.post('/add-word')
+@app.get('/add-word/')
 async def add_word(request: Request):
     dict_result = await request.json()
     word = dict_result["word"]
@@ -48,7 +48,7 @@ async def add_word(request: Request):
 async def add_sentence(request: Request):
     dict_result = await request.json()
     sentence = dict_result["sentence"]
-    word_list = sentence.split(" ")
+    word_list = sentence.split(" ")  
     num_new_words, num_old_words = 0, 0
     for word in word_list:
         if word not in word_counter:
