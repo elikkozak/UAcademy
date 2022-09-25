@@ -8,12 +8,30 @@
     <!-- <title>Document</title> -->
   </head>
   <body>
+    <script id="player-template" type="text/x-handlebars-template">
+      {{#each data}}
+        <div class="player-card">
+          <div class="player-name">{{this.name}}</div>
+          <div class="player-pos">{{this.jersey}}</div>
+          <img
+            class="player-img"
+            src={{this.img}}
+            onerror="this.src='https://www.newasianvillage.com/assets/restaurantcmswebsite/images/Sorry-Image-Not-Available.png'"
+            width="90%"
+            height="200px"
+          />
+          <div class="player-jersey">{{this.pos}}</div>
+        </div>
+      {{/each}}
+    </script>
+
     <div class="search-bar">
-      <input type="text" placeholder="TEAM NAME" />
-      <input type="text" placeholder="YEAR" />
-      <button>GET TEAM</button>
+      <input type="text" id="input-team" placeholder="TEAM NAME" />
+      <input type="text" id="input-year" placeholder="YEAR" />
+      <button id="get-team-btn">GET TEAM</button>
     </div>
     <div class="players-cards">
+      <!-- <div class="player-card"></div>
       <div class="player-card"></div>
       <div class="player-card"></div>
       <div class="player-card"></div>
@@ -24,8 +42,17 @@
       <div class="player-card"></div>
       <div class="player-card"></div>
       <div class="player-card"></div>
-      <div class="player-card"></div>
-      <div class="player-card"></div>
+      <div class="player-card"></div> -->
     </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
+    <script src="build/view.js"></script>
+    <script src="build/model.js"></script>
+    <script src="build/controller.js"></script>
   </body>
 </html>
