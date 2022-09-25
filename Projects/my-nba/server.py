@@ -27,14 +27,14 @@ def get_player_jersey_num(player_data):
     return player_data.get("jersey")
 
 def create_player_obj(player_data):
-    name = get_player_name(player_data),
+    name = get_player_name(player_data)
     f_name,l_name = name.split()
     return {
 
         "name":name,
         "pos":get_player_pos(player_data),
         "jersey":get_player_jersey_num(player_data),
-        "img":f'https://nba-players.herokuapp.com/players/{f_name}/{l_name}'
+        "img":f'https://nba-players.herokuapp.com/players/{l_name}/{f_name}'
     }
 
 
