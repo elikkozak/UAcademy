@@ -9,12 +9,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 class dataModule {
-    constructor() {
-        this.playersData = [];
-    }
     getData(team, year) {
         return __awaiter(this, void 0, void 0, function* () {
+            team = "lakers";
+            year = "2020";
             let result = yield $.get(`http://localhost:8000/players?team=${team}&year=${year}`);
+            return result;
+        });
+    }
+    getFilteredData() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let result = yield $.get(`http://localhost:8000//players/isBirthday`);
             return result;
         });
     }
