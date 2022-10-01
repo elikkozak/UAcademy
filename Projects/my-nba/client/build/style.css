@@ -1,0 +1,59 @@
+* {
+  background-color: hsl(0, 0%, 90%);
+}
+.player-card {
+  /* width: 100%; */
+  display: grid;
+  grid-template-rows: 1fr 1fr 4fr 1fr;
+  height: 301px;
+  background-color: orange;
+  grid-template-areas: "n" "j" "i" "p";
+}
+.player-name {
+  background-color: orange;
+  padding-top: 5px;
+  justify-self: center;
+  grid-area: n;
+}
+
+.player-jersey {
+  background-color: orange;
+  padding-top: 5px;
+  grid-area: j;
+  justify-self: center;
+}
+
+.player-img {
+  justify-self: center;
+  grid-area: i;
+}
+
+.player-pos {
+  background-color: orange;
+  grid-area: p;
+  justify-self: center;
+}
+
+.search-bar {
+  display: grid;
+  grid-template-columns: 10fr 4fr 2fr 2fr;
+  height: 35px;
+  grid-gap: 5px;
+}
+
+.players-cards {
+  padding-top: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  /* justify-content: center; */
+}
+
+button {
+  align-content: center;
+  font-weight: bold;
+}
+input {
+  padding-left: 10px;
+  vertical-align: center;
+}
