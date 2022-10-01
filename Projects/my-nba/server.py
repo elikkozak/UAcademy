@@ -36,34 +36,46 @@ def get_player_jersey_num(player_data):
 
 def create_player_obj(player_data):
     name = get_player_name(player_data)
-    f_name,l_name = name.split()
+    f_name, l_name = name.split()
     return {
 
-        "name":name,
-        "pos":get_player_pos(player_data),
-        "jersey":get_player_jersey_num(player_data),
-        "img":f'https://nba-players.herokuapp.com/players/{l_name}/{f_name}'
+        "name": name,
+        "pos": get_player_pos(player_data),
+        "jersey": get_player_jersey_num(player_data),
+        "img": f'https://nba-players.herokuapp.com/players/{l_name}/{f_name}'
     }
 
 
 @app.get("/players")
-def get_player_data(team,year):
-    player_data_req = requests.get(f'http://data.nba.net/10s/prod/v1/{year}/players.json')
-    filtered_data = list(filter(lambda player_data: player_data["teamId"] == team_to_ids[team],player_data_req.json()["league"]["standard"]))
+def get_player_data(team, year):
+    global data_holder, is_data_init
+    player_data_req = requests.get(
+        f'http://data.nba.net/10s/prod/v1/{year}/players.json')
+    filtered_data = list(filter(
+        lambda player_data: player_data["teamId"] == team_to_ids[team], player_data_req.json()["league"]["standard"]))
     data_holder = filtered_data
     is_data_init = True
-    players_data_list =  [create_player_obj(player_data) for player_data in filtered_data]
-   
+    players_data_list = [create_player_obj(
+        player_data) for player_data in filtered_data]
+    
     return players_data_list
 
 @app.get("/players/isBirthday")
 def get_player_with_birthday():
     if not is_data_init:
         return []
-    filtered_data = list(filter(lambda player_data: player_data["dateOfBirthUTC"] != "",data_holder))
-    players_data_list =  [create_player_obj(player_data) for player_data in filtered_data]
+    filtered_data = list(
+        filter(lambda player_data: player_data["dateOfBirthUTC"] != "", data_holder))
+    players_data_list = [create_player_obj(
+        player_data) for player_data in filtered_data]
     return players_data_list
+
+@app.get("/players/stats")
+def get_player_stats(f_name,l_name):
+    player_stats_req = requests.get(f'https://nba-players.herokuapp.com/players-stats/{f_name}/{l_name}')
+    return player_stats_req
+
 
 
 if __name__ == "__main__":
-    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("server:app", host="0.0.0.0", port=8040, reload=True)

@@ -1,6 +1,7 @@
 "use strict";
 class viewModule {
     renderPage(data) {
+        $(".players-cards").empty();
         const source = $("#player-template").html();
         const template = Handlebars.compile(source);
         const newHTML = template({ data });
