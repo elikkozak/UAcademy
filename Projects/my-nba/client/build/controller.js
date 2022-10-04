@@ -32,9 +32,10 @@ $(".players-cards").on("click", function (e) {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
         if (e.target && (e.target.className === "player-card" || ((_a = e.target.parentElement) === null || _a === void 0 ? void 0 : _a.className) === "player-card")) {
-            dataModuleGetter.getData(getTeamInput.value, getYearInput.value).then((result) => {
-                renderer.renderPage(result);
-            });
+            let playerCardElem = e.target.parentElement;
+            let imageElem = playerCardElem === null || playerCardElem === void 0 ? void 0 : playerCardElem.querySelector("img");
+            let imgSrc = (imageElem === null || imageElem === void 0 ? void 0 : imageElem.src) || "";
+            renderer.renderLightBox(imgSrc);
         }
     });
 });

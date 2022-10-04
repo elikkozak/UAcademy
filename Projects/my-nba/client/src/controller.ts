@@ -26,11 +26,11 @@ filterTeamButton.on("click",async function () {
 
 $(".players-cards").on("click",async function (e) {
     if(e.target && (e.target.className ==="player-card" || e.target.parentElement?.className ==="player-card")){
-        dataModuleGetter.getData(getTeamInput.value,getYearInput.value).then(
-            (result:any)=>{
-                renderer.renderPage(result)            
-            }
-        )
+        let playerCardElem = e.target.parentElement
+        let imageElem = playerCardElem?.querySelector("img")
+
+        let imgSrc = imageElem?.src || ""
+        renderer.renderLightBox(imgSrc)
     }
 
 })
