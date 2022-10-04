@@ -24,13 +24,18 @@ filterTeamButton.on("click",async function () {
 
 })
 
-$(".players-cards").on("click",async function (e) {
+$(".players-cards").on("click",".player-card",async function (e) {
     if(e.target && (e.target.className ==="player-card" || e.target.parentElement?.className ==="player-card")){
         let playerCardElem = e.target.parentElement
         let imageElem = playerCardElem?.querySelector("img")
-
+        
         let imgSrc = imageElem?.src || ""
         renderer.renderLightBox(imgSrc)
     }
 
+})
+
+$("body").on("click","#lightBox",function(e){
+    if(e.target !== e.currentTarget) return
+    document.getElementById("lightBox")?.classList.remove('active')
 })

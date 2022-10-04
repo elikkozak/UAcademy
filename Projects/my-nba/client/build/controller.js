@@ -28,7 +28,7 @@ filterTeamButton.on("click", function () {
         });
     });
 });
-$(".players-cards").on("click", function (e) {
+$(".players-cards").on("click", ".player-card", function (e) {
     var _a;
     return __awaiter(this, void 0, void 0, function* () {
         if (e.target && (e.target.className === "player-card" || ((_a = e.target.parentElement) === null || _a === void 0 ? void 0 : _a.className) === "player-card")) {
@@ -38,4 +38,10 @@ $(".players-cards").on("click", function (e) {
             renderer.renderLightBox(imgSrc);
         }
     });
+});
+$("body").on("click", "#lightBox", function (e) {
+    var _a;
+    if (e.target !== e.currentTarget)
+        return;
+    (_a = document.getElementById("lightBox")) === null || _a === void 0 ? void 0 : _a.classList.remove('active');
 });

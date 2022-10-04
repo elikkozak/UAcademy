@@ -9,12 +9,16 @@ class viewModule{
     }
 
     renderLightBox(imgSrc:string){
-        const lightBox  = document.createElement('div')
-        lightBox.id = 'lightBox'
-        document.body.append(lightBox)
-        lightBox.classList.add('active')
+        const lightBox  = document.getElementById('lightBox')
+        // lightBox.id = 'lightBox'
+        // document.body.append(lightBox)
+        lightBox?.classList.add('active')
+        if (!lightBox) return
         const img = document.createElement('img')
         img.src = imgSrc
-        lightBox.appendChild(img)
+        while(lightBox?.firstChild){
+            lightBox.removeChild(lightBox.firstChild)
+        }
+        lightBox?.appendChild(img)
     }
 }

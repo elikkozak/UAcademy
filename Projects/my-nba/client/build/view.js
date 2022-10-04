@@ -9,12 +9,17 @@ class viewModule {
         $(".players-cards").append(newHTML);
     }
     renderLightBox(imgSrc) {
-        const lightBox = document.createElement('div');
-        lightBox.id = 'lightBox';
-        document.body.append(lightBox);
-        lightBox.classList.add('active');
+        const lightBox = document.getElementById('lightBox');
+        // lightBox.id = 'lightBox'
+        // document.body.append(lightBox)
+        lightBox === null || lightBox === void 0 ? void 0 : lightBox.classList.add('active');
+        if (!lightBox)
+            return;
         const img = document.createElement('img');
         img.src = imgSrc;
-        lightBox.appendChild(img);
+        while (lightBox === null || lightBox === void 0 ? void 0 : lightBox.firstChild) {
+            lightBox.removeChild(lightBox.firstChild);
+        }
+        lightBox === null || lightBox === void 0 ? void 0 : lightBox.appendChild(img);
     }
 }
