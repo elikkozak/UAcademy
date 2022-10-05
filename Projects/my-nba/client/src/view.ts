@@ -8,17 +8,25 @@ class viewModule{
         $(".players-cards").append(newHTML);
     }
 
-    renderLightBox(imgSrc:string){
+    renderLightBox(data:any){
         const lightBox  = document.getElementById('lightBox')
-        // lightBox.id = 'lightBox'
         // document.body.append(lightBox)
-        lightBox?.classList.add('active')
         if (!lightBox) return
-        const img = document.createElement('img')
-        img.src = imgSrc
-        while(lightBox?.firstChild){
-            lightBox.removeChild(lightBox.firstChild)
-        }
-        lightBox?.appendChild(img)
+        lightBox?.classList.add('active')
+        // const playerStats = document.createElement('div')
+        // playerStats.id = 'statistics-card'
+        
+        const source = $("#statistics-template").html();
+        const template = Handlebars.compile(source);
+        const newHTML = template(data);
+        // playerStats.append(newHTML)
+         // append our new html to the page
+        // $(".players-cards").append(newHTML);
+        // // img.src = imgSrc
+        // while(lightBox?.firstChild){
+        //     lightBox.removeChild(lightBox.firstChild)
+        // }
+        $("#lightBox").append(newHTML)
+        // lightBox?.append(newHTML)
     }
 }

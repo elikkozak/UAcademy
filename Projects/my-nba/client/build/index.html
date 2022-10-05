@@ -13,6 +13,36 @@
     <!-- <title>Document</title> -->
   </head>
   <body>
+    <script id="statistics-template" type="text/x-handlebars-template">
+      <div class="statistics-card">
+        <img id="statistics-card-img" src="{{img}}" alt="" />
+        <div id="statistics-card-name">{{name}}</div>
+        <div class="statistics-card-stats">
+          <div class="statistics-card-stat" id="statistics-card-GP"><span
+            >GP</span>
+            <span class="statistics-card-value">{{games_played}}</span></div>
+          <div class="statistics-card-stat" id="statistics-card-minutes"><span
+            >MIN</span>
+            <span
+              class="statistics-card-value"
+            >{{minutes_per_game}}</span></div>
+          <div class="statistics-card-stat" id="statistics-card-PTS"><span
+            >PTS</span>
+            <span class="statistics-card-value">{{points_per_game}}</span></div>
+          <div class="statistics-card-stat" id="statistics-card-REB"><span
+            >REB</span>
+            <span
+              class="statistics-card-value"
+            >{{rebounds_per_game}}</span></div>
+          <div class="statistics-card-stat" id="statistics-card-AST"><span
+            >AST</span>
+            <span
+              class="statistics-card-value"
+            >{{assists_per_game}}</span></div>
+        </div>
+      </div>
+    </script>
+
     <script id="player-template" type="text/x-handlebars-template">
       {{#each data}}
         <div class="player-card">
@@ -22,8 +52,8 @@
             class="player-img"
             src={{this.img}}
             onerror="this.src='https://www.newasianvillage.com/assets/restaurantcmswebsite/images/Sorry-Image-Not-Available.png'"
-            width="90%"
-            height="200px"
+            width="70%"
+            height="300px"
           />
           <div class="player-jersey">{{this.pos}}</div>
         </div>
@@ -50,7 +80,7 @@
       <div class="player-card"></div>
       <div class="player-card"></div> -->
     </div>
-    <div id="lightBox"> </div>
+    <div id="lightBox"></div>
 
     <script
       src="https://code.jquery.com/jquery-3.6.1.js"

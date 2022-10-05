@@ -1,25 +1,33 @@
 "use strict";
 class viewModule {
-    renderPage(data) {
-        $(".players-cards").empty();
-        const source = $("#player-template").html();
-        const template = Handlebars.compile(source);
-        const newHTML = template({ data });
-        // append our new html to the page
-        $(".players-cards").append(newHTML);
+  renderPage(data) {
+    $(".players-cards").empty();
+    const source = $("#player-template").html();
+    const template = Handlebars.compile(source);
+    const newHTML = template({ data });
+    // append our new html to the page
+    $(".players-cards").append(newHTML);
+  }
+  renderLightBox(data) {
+    const lightBox = document.getElementById("lightBox");
+    // document.body.append(lightBox)
+    if (!lightBox) return;
+    lightBox === null || lightBox === void 0
+      ? void 0
+      : lightBox.classList.add("active");
+    // const playerStats = document.createElement('div')
+    // playerStats.id = 'statistics-card'
+    const source = $("#statistics-template").html();
+    const template = Handlebars.compile(source);
+    const newHTML = template(data);
+    // playerStats.append(newHTML)
+    // append our new html to the page
+    // $(".players-cards").append(newHTML);
+    // // img.src = imgSrc
+    if ($("#lightBox").children().length) {
+      $("#lightBox").children().remove();
     }
-    renderLightBox(imgSrc) {
-        const lightBox = document.getElementById('lightBox');
-        // lightBox.id = 'lightBox'
-        // document.body.append(lightBox)
-        lightBox === null || lightBox === void 0 ? void 0 : lightBox.classList.add('active');
-        if (!lightBox)
-            return;
-        const img = document.createElement('img');
-        img.src = imgSrc;
-        while (lightBox === null || lightBox === void 0 ? void 0 : lightBox.firstChild) {
-            lightBox.removeChild(lightBox.firstChild);
-        }
-        lightBox === null || lightBox === void 0 ? void 0 : lightBox.appendChild(img);
-    }
+    $("#lightBox").append(newHTML);
+    // lightBox?.append(newHTML)
+  }
 }

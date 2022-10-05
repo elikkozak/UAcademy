@@ -12,7 +12,7 @@ class dataModule {
     getData(team, year) {
         return __awaiter(this, void 0, void 0, function* () {
             team = "lakers";
-            year = "2013";
+            year = "2020";
             let result = yield $.get(`http://localhost:8040/players?team=${team}&year=${year}`);
             return result;
         });
@@ -20,6 +20,12 @@ class dataModule {
     getFilteredData() {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield $.get(`http://localhost:8040/players/isBirthday`);
+            return result;
+        });
+    }
+    getStatsData(f_name, l_name) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let result = yield $.get(`http://localhost:8040/players/stats?l_name=${l_name}&f_name=${f_name}`);
             return result;
         });
     }

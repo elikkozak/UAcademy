@@ -5,33 +5,34 @@
   /* width: 100%; */
   display: grid;
   grid-template-rows: 1fr 1fr 4fr 1fr;
-  height: 301px;
+  height: 401px;
   background-color: orange;
-  grid-template-areas: "n" "j" "i" "p";
+  /* grid-template-areas: "n" "j" "i" "p"; */
   cursor: pointer;
 }
 .player-name {
   background-color: orange;
   padding-top: 5px;
   justify-self: center;
-  grid-area: n;
+  /* grid-area: n; */
 }
 
 .player-jersey {
   background-color: orange;
   padding-top: 5px;
-  grid-area: j;
+  /* grid-area: j; */
   justify-self: center;
 }
 
 .player-img {
   justify-self: center;
-  grid-area: i;
+  
+  /* grid-area: i; */
 }
 
 .player-pos {
   background-color: orange;
-  grid-area: p;
+  /* grid-area: p; */
   justify-self: center;
 }
 
@@ -75,7 +76,54 @@ input {
   align-items: center;
 }
 
-#lightBox img {
-  width: 200px;
-  height: 200px;
+.statistics-card {
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: "i n" "i s";
+  width: 60%;
+  height: 300px;
+  border: black 2px solid;
+}
+
+#statistics-card-img {
+  display: flex;
+  grid-area: i;
+  align-items: center;
+  height: 100%;
+}
+
+#statistics-card-name {
+  grid-area: n;
+}
+
+.statistics-card-stats {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-area: s;
+}
+
+.statistics-card-stat {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  justify-items: center;
+  align-items: center;
+  border-top: black 2px solid;
+  border-left: 2px black solid;
+
+  font-size: 1.5em;
+}
+
+.statistics-card-value {
+  font-weight: bold;
+  padding-bottom: 10%;
+  font-size: 2em;
+}
+
+#statistics-card-name {
+  display: flex;
+  align-items: center;
+  font-size: 3em;
+  padding-left: 5%;
+  border-left: solid black 2px;
 }

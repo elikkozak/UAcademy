@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const getTeamButton = $("#get-team-btn");
 const filterTeamButton = $("#filter-team-btn");
+const lightBox = $("#lightBox");
 let getYearInput = $("#input-year").get(0);
 const getTeamInput = $("#input-team").get(0);
 const dataModuleGetter = new dataModule();
@@ -29,19 +30,23 @@ filterTeamButton.on("click", function () {
     });
 });
 $(".players-cards").on("click", ".player-card", function (e) {
-    var _a;
     return __awaiter(this, void 0, void 0, function* () {
-        if (e.target && (e.target.className === "player-card" || ((_a = e.target.parentElement) === null || _a === void 0 ? void 0 : _a.className) === "player-card")) {
-            let playerCardElem = e.target.parentElement;
-            let imageElem = playerCardElem === null || playerCardElem === void 0 ? void 0 : playerCardElem.querySelector("img");
-            let imgSrc = (imageElem === null || imageElem === void 0 ? void 0 : imageElem.src) || "";
-            renderer.renderLightBox(imgSrc);
+        if (e.target && e.target.parentElement.className === "player-card") {
+            const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
+            const [l_name, f_name] = playerName.split(" ");
+            dataModuleGetter.getStatsData(f_name, l_name).then((result) => {
+                result["img"] = e.target.parentElement.children[2].src;
+                renderer.renderLightBox(result);
+            });
+            // let playerCardElem = e.target.parentElement
+            // let imageElem = playerCardElem.querySelector("img")
+            // let imgSrc = imageElem.src
+            // renderer.renderLightBox(imgSrc)
         }
     });
 });
 $("body").on("click", "#lightBox", function (e) {
-    var _a;
     if (e.target !== e.currentTarget)
         return;
-    (_a = document.getElementById("lightBox")) === null || _a === void 0 ? void 0 : _a.classList.remove('active');
+    lightBox.removeClass('active');
 });

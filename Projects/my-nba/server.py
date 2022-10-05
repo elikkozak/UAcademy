@@ -11,9 +11,11 @@ app = FastAPI()
 
 app.mount("/client/build", StaticFiles(directory="client/build"), name="static")
 
+
 @app.get('/')
 def root():
     return FileResponse('./client/build/index.html')
+
 
 data_holder = []
 is_data_init = False
@@ -26,7 +28,7 @@ team_to_ids = {
 }
 
 def get_player_name(player_data):
-    return player_data["firstName"] + " " + player_data["lastName"]
+    return player_data["lastName"] + " " + player_data["firstName"]
 
 def get_player_pos(player_data):
     return player_data.get("pos")
@@ -36,7 +38,7 @@ def get_player_jersey_num(player_data):
 
 def create_player_obj(player_data):
     name = get_player_name(player_data)
-    f_name, l_name = name.split()
+    l_name,f_name = name.split()
     return {
 
         "name": name,
@@ -57,7 +59,7 @@ def get_player_data(team, year):
     is_data_init = True
     players_data_list = [create_player_obj(
         player_data) for player_data in filtered_data]
-    
+
     return players_data_list
 
 @app.get("/players/isBirthday")
@@ -71,10 +73,10 @@ def get_player_with_birthday():
     return players_data_list
 
 @app.get("/players/stats")
-def get_player_stats(f_name,l_name):
-    player_stats_req = requests.get(f'https://nba-players.herokuapp.com/players-stats/{f_name}/{l_name}')
-    return player_stats_req
+def get_player_stats(l_name,f_name):
+    player_stats_req = requests.get(f'https://nba-players.herokuapp.com/players-stats/{l_name}/{f_name}')
 
+    return player_stats_req.json()
 
 
 if __name__ == "__main__":
