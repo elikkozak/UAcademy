@@ -38,11 +38,6 @@ $(".players-cards").on("click",".player-card",async function (e) {
                 renderer.renderLightBox(result)            
             }
         )
-        // let playerCardElem = e.target.parentElement
-        // let imageElem = playerCardElem.querySelector("img")
-        
-        // let imgSrc = imageElem.src
-        // renderer.renderLightBox(imgSrc)
     }
 
 })

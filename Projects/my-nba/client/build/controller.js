@@ -38,10 +38,6 @@ $(".players-cards").on("click", ".player-card", function (e) {
                 result["img"] = e.target.parentElement.children[2].src;
                 renderer.renderLightBox(result);
             });
-            // let playerCardElem = e.target.parentElement
-            // let imageElem = playerCardElem.querySelector("img")
-            // let imgSrc = imageElem.src
-            // renderer.renderLightBox(imgSrc)
         }
     });
 });
