@@ -29,4 +29,13 @@ class dataModule {
             return result;
         });
     }
+    addPlayerToDreamTeam(playerObj) {
+        $.post("/dreamTeam", JSON.stringify(playerObj));
+    }
+    removePlayerFromDreamTeam() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let result = yield $.get(`http://localhost:8040/dreamTeam`);
+            return result;
+        });
+    }
 }

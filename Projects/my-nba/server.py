@@ -17,6 +17,8 @@ def root():
     return FileResponse('./client/build/index.html')
 
 
+dream_team_players = []
+
 data_holder = []
 is_data_init = False
 
@@ -77,6 +79,14 @@ def get_player_stats(l_name,f_name):
     player_stats_req = requests.get(f'https://nba-players.herokuapp.com/players-stats/{l_name}/{f_name}')
 
     return player_stats_req.json()
+
+
+@app.get("/dreamTeam")
+def get_dream_team():
+    return dream_team_players
+
+
+
 
 
 if __name__ == "__main__":
