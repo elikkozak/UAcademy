@@ -10,6 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const getTeamButton = $("#get-team-btn");
 const filterTeamButton = $("#filter-team-btn");
+const getDreamTeamButton = $("#get-dream-team-btn");
 const lightBox = $("#lightBox");
 let getYearInput = $("#input-year").get(0);
 const getTeamInput = $("#input-team").get(0);
@@ -45,4 +46,11 @@ $("body").on("click", "#lightBox", function (e) {
     if (e.target !== e.currentTarget)
         return;
     lightBox.removeClass('active');
+});
+getDreamTeamButton.on("click", function () {
+    return __awaiter(this, void 0, void 0, function* () {
+        dataModuleGetter.getDreamTeam().then((result) => {
+            renderer.renderPage(result);
+        });
+    });
 });

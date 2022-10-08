@@ -21,7 +21,7 @@ addPlayerToDreamTeam(playerObj:any){
     $.post("/dreamTeam",JSON.stringify(playerObj))
 }
 
-async removePlayerFromDreamTeam(){
+async getDreamTeam(){
     let result = await $.get(`http://localhost:8040/dreamTeam`)
     return result
 }

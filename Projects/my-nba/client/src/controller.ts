@@ -1,5 +1,6 @@
 const getTeamButton = $("#get-team-btn")
 const filterTeamButton = $("#filter-team-btn")
+const getDreamTeamButton = $("#get-dream-team-btn")
 const lightBox = $("#lightBox")
  
 
@@ -46,3 +47,10 @@ $("body").on("click","#lightBox",function(e){
     if(e.target !== e.currentTarget) return
     lightBox.removeClass('active')
 })
+
+getDreamTeamButton.on("click",async function(){
+    dataModuleGetter.getDreamTeam().then(
+        (result:any)=>{
+            renderer.renderPage(result)            
+        }
+)})

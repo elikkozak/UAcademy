@@ -32,7 +32,7 @@ class dataModule {
     addPlayerToDreamTeam(playerObj) {
         $.post("/dreamTeam", JSON.stringify(playerObj));
     }
-    removePlayerFromDreamTeam() {
+    getDreamTeam() {
         return __awaiter(this, void 0, void 0, function* () {
             let result = yield $.get(`http://localhost:8040/dreamTeam`);
             return result;
