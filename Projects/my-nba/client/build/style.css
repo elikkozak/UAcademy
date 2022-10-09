@@ -3,6 +3,7 @@
 }
 .player-card {
   /* width: 100%; */
+  position: relative;
   display: grid;
   grid-template-rows: 1fr 1fr 4fr 1fr 1fr;
   height: 401px;
@@ -38,9 +39,17 @@
 
 .add-to-dream-team-btn {
   background-color: orange;
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 7%;
+  right: 0%;
 }
 .remove-from-dream-team-btn {
   background-color: orange;
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 7%;
+  right: 0%;
 }
 
 .search-bar {

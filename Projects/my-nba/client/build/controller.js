@@ -50,7 +50,7 @@ $("body").on("click", "#lightBox", function (e) {
 getDreamTeamButton.on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         dataModuleGetter.getDreamTeam().then((result) => {
-            renderer.renderPage(result);
+            renderer.renderDreamTeamPage(result);
         });
     });
 });

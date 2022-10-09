@@ -51,7 +51,7 @@ $("body").on("click","#lightBox",function(e){
 getDreamTeamButton.on("click",async function(){
     dataModuleGetter.getDreamTeam().then(
         (result:any)=>{
-            renderer.renderPage(result)            
+            renderer.renderDreamTeamPage(result)            
         }
 )})
 
