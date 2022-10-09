@@ -15,4 +15,18 @@ class viewModule{
         $("#lightBox").children().remove()
         $("#lightBox").append(newHTML)
     }
+
+    renderAddPlayer(element:HTMLElement){
+        element.removeAttribute("class")
+        element.classList.add('remove-from-dream-team-btn')
+        element.classList.add('fa')
+        element.classList.add('fa-minus')
+    }
+
+    renderRemovePlayer(element:HTMLElement){
+        element.removeAttribute("class")
+        element.classList.add('add-to-dream-team-btn')
+        element.classList.add('fa')
+        element.classList.add('fa-plus')
+    }
 }

@@ -30,7 +30,14 @@ class dataModule {
         });
     }
     addPlayerToDreamTeam(playerObj) {
-        $.post("/dreamTeam", JSON.stringify(playerObj));
+        $.post("http://localhost:8040/dreamTeam", playerObj);
+    }
+    removePlayerFromDreamTeam(playerObj) {
+        return $.ajax({
+            url: `/dreamTeam`,
+            method: "DELETE",
+            data: playerObj
+        });
     }
     getDreamTeam() {
         return __awaiter(this, void 0, void 0, function* () {

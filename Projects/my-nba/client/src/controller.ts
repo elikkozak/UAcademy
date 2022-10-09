@@ -28,7 +28,7 @@ filterTeamButton.on("click",async function () {
 })
 
 $(".players-cards").on("click",".player-card",async function (e) {
-    if(e.target && e.target.parentElement.className ==="player-card"){
+    if(e.target && e.target.parentElement.className ==="player-card" && !e.target.className.includes("fa")  ){
         const playerName:string = e.target.parentElement.children[0].textContent.toLowerCase()
 
         
@@ -54,3 +54,33 @@ getDreamTeamButton.on("click",async function(){
             renderer.renderPage(result)            
         }
 )})
+
+$(".players-cards").on("click",".add-to-dream-team-btn",async function (e) {
+    if(e.target && e.target.parentElement.className ==="player-card" && e.target.className.includes("plus")){
+        const playerName:string = e.target.parentElement.children[0].textContent.toLowerCase()
+        const playerPos:string = e.target.parentElement.children[1].textContent
+        const playerImg:string = e.target.parentElement.children[2].src
+        const playerJersey:string = e.target.parentElement.children[3].textContent
+        const playerObj = {"name":playerName,"pos":playerPos,"img":playerImg,"jersey":playerJersey}
+        
+        dataModuleGetter.addPlayerToDreamTeam(playerObj)
+        renderer.renderAddPlayer(e.target)             
+             
+        
+    }
+
+})
+
+$(".players-cards").on("click",".remove-from-dream-team-btn",async function (e) {
+    if(e.target && e.target.parentElement.className ==="player-card" && e.target.className.includes("minus")){
+        const playerName:string = e.target.parentElement.children[0].textContent.toLowerCase()
+
+        const playerObj = {"name":playerName}
+        
+        dataModuleGetter.removePlayerFromDreamTeam(playerObj)
+        renderer.renderRemovePlayer(e.target)             
+             
+        
+    }
+
+})

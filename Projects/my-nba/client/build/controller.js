@@ -32,7 +32,7 @@ filterTeamButton.on("click", function () {
 });
 $(".players-cards").on("click", ".player-card", function (e) {
     return __awaiter(this, void 0, void 0, function* () {
-        if (e.target && e.target.parentElement.className === "player-card") {
+        if (e.target && e.target.parentElement.className === "player-card" && !e.target.className.includes("fa")) {
             const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
             const [l_name, f_name] = playerName.split(" ");
             dataModuleGetter.getStatsData(f_name, l_name).then((result) => {
@@ -52,5 +52,28 @@ getDreamTeamButton.on("click", function () {
         dataModuleGetter.getDreamTeam().then((result) => {
             renderer.renderPage(result);
         });
+    });
+});
+$(".players-cards").on("click", ".add-to-dream-team-btn", function (e) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (e.target && e.target.parentElement.className === "player-card" && e.target.className.includes("plus")) {
+            const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
+            const playerPos = e.target.parentElement.children[1].textContent;
+            const playerImg = e.target.parentElement.children[2].src;
+            const playerJersey = e.target.parentElement.children[3].textContent;
+            const playerObj = { "name": playerName, "pos": playerPos, "img": playerImg, "jersey": playerJersey };
+            dataModuleGetter.addPlayerToDreamTeam(playerObj);
+            renderer.renderAddPlayer(e.target);
+        }
+    });
+});
+$(".players-cards").on("click", ".remove-from-dream-team-btn", function (e) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (e.target && e.target.parentElement.className === "player-card" && e.target.className.includes("minus")) {
+            const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
+            const playerObj = { "name": playerName };
+            dataModuleGetter.removePlayerFromDreamTeam(playerObj);
+            renderer.renderRemovePlayer(e.target);
+        }
     });
 });

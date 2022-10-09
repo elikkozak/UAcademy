@@ -1,7 +1,10 @@
 import json
+from pydantic import Json
 import requests
 import uvicorn
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.encoders import jsonable_encoder
+
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -65,7 +68,7 @@ def get_player_data(team, year):
     is_data_init = True
     players_data_list = [create_player_obj(
         player_data) for player_data in filtered_data]
-    dream_team_players = players_data_list[:5]
+    # dream_team_players = players_data_list[:5]
     return players_data_list
 
 
@@ -91,6 +94,24 @@ def get_player_stats(l_name, f_name):
 @app.get("/dreamTeam")
 def get_dream_team():
     return dream_team_players
+
+
+@app.post("/dreamTeam")
+async def add_player_to_dream_team(request: Request):
+    global dream_team_players
+    da = await request.form()
+    da = jsonable_encoder(da)
+    dream_team_players.append(da)
+    # return dream_team_players
+
+
+@app.delete("/dreamTeam")
+async def remove_player_from_dream_team(request: Request):
+    global dream_team_players
+    da = await request.form()
+    da = jsonable_encoder(da)
+    dream_team_players = list(
+        filter(lambda player: player["name"] != da["name"], dream_team_players))
 
 
 if __name__ == "__main__":

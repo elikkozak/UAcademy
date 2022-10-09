@@ -18,8 +18,15 @@ async getStatsData (f_name:string,l_name:string){
 }
 
 addPlayerToDreamTeam(playerObj:any){
-    $.post("/dreamTeam",JSON.stringify(playerObj))
+    $.post("http://localhost:8040/dreamTeam",playerObj)
 }
+
+removePlayerFromDreamTeam(playerObj:any){
+    return $.ajax({
+        url: `/dreamTeam`,
+        method: "DELETE",
+        data:playerObj
+    })}
 
 async getDreamTeam(){
     let result = await $.get(`http://localhost:8040/dreamTeam`)

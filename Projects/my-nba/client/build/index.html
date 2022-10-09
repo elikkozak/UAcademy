@@ -10,6 +10,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="client/build/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
     <!-- <title>Document</title> -->
   </head>
   <body>
@@ -56,6 +61,7 @@
             height="300px"
           />
           <div class="player-jersey">{{this.pos}}</div>
+          <button class="add-to-dream-team-btn fa fa-plus"></button>
         </div>
       {{/each}}
     </script>
@@ -66,7 +72,6 @@
       <button id="get-team-btn">GET TEAM</button>
       <button id="filter-team-btn">Filter TEAM</button>
       <button id="get-dream-team-btn">DREAM TEAM</button>
-
     </div>
     <div class="players-cards">
       <!-- <div class="player-card"></div>
