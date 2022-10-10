@@ -5,13 +5,19 @@
   /* width: 100%; */
   position: relative;
   display: grid;
-  grid-template-rows: 1fr 1fr 4fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 4fr 1fr;
   height: 401px;
+  align-items: center;
   background-color: orange;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* font-size: medium; */
+  border: 2px solid black;
   /* grid-template-areas: "n" "j" "i" "p"; */
   cursor: pointer;
 }
 .player-name {
+  top: 10%;
   background-color: orange;
   padding-top: 5px;
   justify-self: center;
@@ -19,6 +25,8 @@
 }
 
 .player-jersey {
+  top: 10%;
+
   background-color: orange;
   padding-top: 5px;
   /* grid-area: j; */
@@ -26,12 +34,16 @@
 }
 
 .player-img {
+  top: 10%;
+
   justify-self: center;
 
   /* grid-area: i; */
 }
 
 .player-pos {
+  top: 10%;
+
   background-color: orange;
   /* grid-area: p; */
   justify-self: center;
@@ -43,13 +55,21 @@
   aspect-ratio: 1/1;
   width: 7%;
   right: 0%;
+  border-top: 0;
+  border-right: 0;
+  cursor: pointer;
+  top: 0%;
 }
 .remove-from-dream-team-btn {
   background-color: orange;
   position: absolute;
   aspect-ratio: 1/1;
+  border-top: 0;
+  border-right: 0;
   width: 7%;
   right: 0%;
+  cursor: pointer;
+  top: 0%;
 }
 
 .search-bar {

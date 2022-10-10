@@ -30,12 +30,19 @@ filterTeamButton.on("click", function () {
         });
     });
 });
+const toTitleCase = (phrase) => {
+    return phrase
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+};
 $(".players-cards").on("click", ".player-card", function (e) {
     return __awaiter(this, void 0, void 0, function* () {
         if (e.target && e.target.parentElement.className === "player-card" && !e.target.className.includes("fa")) {
             const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
             const [l_name, f_name] = playerName.split(" ");
             dataModuleGetter.getStatsData(f_name, l_name).then((result) => {
+                result["name"] = toTitleCase(playerName);
                 result["img"] = e.target.parentElement.children[2].src;
                 renderer.renderLightBox(result);
             });
@@ -57,7 +64,7 @@ getDreamTeamButton.on("click", function () {
 $(".players-cards").on("click", ".add-to-dream-team-btn", function (e) {
     return __awaiter(this, void 0, void 0, function* () {
         if (e.target && e.target.parentElement.className === "player-card" && e.target.className.includes("plus")) {
-            const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
+            const playerName = e.target.parentElement.children[0].textContent;
             const playerPos = e.target.parentElement.children[1].textContent;
             const playerImg = e.target.parentElement.children[2].src;
             const playerJersey = e.target.parentElement.children[3].textContent;

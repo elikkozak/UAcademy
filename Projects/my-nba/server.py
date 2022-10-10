@@ -34,7 +34,7 @@ team_to_ids = {
 
 
 def get_player_name(player_data):
-    return player_data["lastName"] + " " + player_data["firstName"]
+    return player_data["firstName"] + " " + player_data["lastName"]
 
 
 def get_player_pos(player_data):
@@ -47,7 +47,7 @@ def get_player_jersey_num(player_data):
 
 def create_player_obj(player_data):
     name = get_player_name(player_data)
-    l_name, f_name = name.split()
+    l_name, f_name = name.split()[::-1]
     return {
 
         "name": name,
@@ -68,7 +68,6 @@ def get_player_data(team, year):
     is_data_init = True
     players_data_list = [create_player_obj(
         player_data) for player_data in filtered_data]
-    # dream_team_players = players_data_list[:5]
     return players_data_list
 
 

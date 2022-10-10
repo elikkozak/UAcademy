@@ -27,6 +27,13 @@ filterTeamButton.on("click",async function () {
 
 })
 
+const toTitleCase = (phrase:string) => {
+    return phrase
+      .split(' ')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
 $(".players-cards").on("click",".player-card",async function (e) {
     if(e.target && e.target.parentElement.className ==="player-card" && !e.target.className.includes("fa")  ){
         const playerName:string = e.target.parentElement.children[0].textContent.toLowerCase()
@@ -35,6 +42,7 @@ $(".players-cards").on("click",".player-card",async function (e) {
         const [l_name,f_name] = playerName.split(" ")
         dataModuleGetter.getStatsData(f_name,l_name).then(
             (result:any)=>{
+                result["name"] = toTitleCase(playerName)
                 result["img"] = e.target.parentElement.children[2].src
                 renderer.renderLightBox(result)            
             }
@@ -57,7 +65,7 @@ getDreamTeamButton.on("click",async function(){
 
 $(".players-cards").on("click",".add-to-dream-team-btn",async function (e) {
     if(e.target && e.target.parentElement.className ==="player-card" && e.target.className.includes("plus")){
-        const playerName:string = e.target.parentElement.children[0].textContent.toLowerCase()
+        const playerName:string = e.target.parentElement.children[0].textContent
         const playerPos:string = e.target.parentElement.children[1].textContent
         const playerImg:string = e.target.parentElement.children[2].src
         const playerJersey:string = e.target.parentElement.children[3].textContent
