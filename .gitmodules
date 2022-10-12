@@ -1,0 +1,3 @@
+[submodule "week-10/SQL-INTRO/sql-intro-lesson-exercises"]
+	path = week-10/SQL-INTRO/sql-intro-lesson-exercises
+	url = https://github.com/Elevationacademy/sql-intro-lesson-exercises
