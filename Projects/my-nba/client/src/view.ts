@@ -13,6 +13,7 @@ class viewModule{
         element.classList.add('fa-plus')
     }
     renderPage(data:object[]){
+        $("#error-message").empty()
         $(".players-cards").empty()
         const source = $("#player-template").html();
         const template = Handlebars.compile(source);
@@ -20,7 +21,14 @@ class viewModule{
         $(".players-cards").append(newHTML);
     }
 
+    renderError(errorObj:object){
+        $("#error-message").html("ERROR NO DATA FOR THIS INPUT")
+    }
+
+
     renderDreamTeamPage(data:object[]){
+        $("#error-message").empty()
+
         $(".players-cards").empty()
         const source = $("#player-template").html();
         const template = Handlebars.compile(source);

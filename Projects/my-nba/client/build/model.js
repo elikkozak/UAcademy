@@ -11,10 +11,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 class dataModule {
     getData(team, year) {
         return __awaiter(this, void 0, void 0, function* () {
-            team = "lakers";
-            year = "2020";
-            let result = yield $.get(`http://localhost:8040/players?team=${team}&year=${year}`);
-            return result;
+            try {
+                // team = "lakers"
+                // year = "2020"
+                let result = yield $.get(`http://localhost:8040/players?team=${team}&year=${year}`);
+                return result;
+            }
+            catch (error) {
+                return { "err": error };
+            }
         });
     }
     getFilteredData() {

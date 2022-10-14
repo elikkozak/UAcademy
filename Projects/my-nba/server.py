@@ -1,8 +1,7 @@
 import json
-from pydantic import Json
 import requests
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException, status
 from fastapi.encoders import jsonable_encoder
 
 
@@ -57,15 +56,17 @@ def create_player_obj(player_data):
     }
 
 
-@app.get("/players")
-def get_player_data(team, year):
+@app.get("/players", status_code=status.HTTP_200_OK)
+async def get_player_data(team, year):
     global data_holder, is_data_init, dream_team_players
     player_data_req = requests.get(
         f'http://data.nba.net/10s/prod/v1/{year}/players.json')
     filtered_data = list(filter(
-        lambda player_data: player_data["teamId"] == team_to_ids[team], player_data_req.json()["league"]["standard"]))
+        lambda player_data: player_data["teamId"] == team_to_ids.get(team,0), player_data_req.json()["league"]["standard"]))
     data_holder = filtered_data
     is_data_init = True
+    if not filtered_data:
+        raise HTTPException(status_code=404, detail="The team does not exist")
     players_data_list = [create_player_obj(
         player_data) for player_data in filtered_data]
     return players_data_list

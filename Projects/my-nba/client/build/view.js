@@ -13,13 +13,18 @@ class viewModule {
         element.classList.add('fa-plus');
     }
     renderPage(data) {
+        $("#error-message").empty();
         $(".players-cards").empty();
         const source = $("#player-template").html();
         const template = Handlebars.compile(source);
         const newHTML = template({ data });
         $(".players-cards").append(newHTML);
     }
+    renderError(errorObj) {
+        $("#error-message").html("ERROR NO DATA FOR THIS INPUT");
+    }
     renderDreamTeamPage(data) {
+        $("#error-message").empty();
         $(".players-cards").empty();
         const source = $("#player-template").html();
         const template = Handlebars.compile(source);

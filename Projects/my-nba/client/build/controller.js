@@ -19,7 +19,11 @@ const renderer = new viewModule();
 getTeamButton.on("click", function () {
     return __awaiter(this, void 0, void 0, function* () {
         dataModuleGetter.getData(getTeamInput.value, getYearInput.value).then((result) => {
-            renderer.renderPage(result);
+            if (!("err" in result))
+                renderer.renderPage(result);
+            else {
+                renderer.renderError(result);
+            }
         });
     });
 });
@@ -40,7 +44,7 @@ $(".players-cards").on("click", ".player-card", function (e) {
     return __awaiter(this, void 0, void 0, function* () {
         if (e.target && e.target.parentElement.className === "player-card" && !e.target.className.includes("fa")) {
             const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
-            const [l_name, f_name] = playerName.split(" ");
+            const [f_name, l_name] = playerName.split(" ");
             dataModuleGetter.getStatsData(f_name, l_name).then((result) => {
                 result["name"] = toTitleCase(playerName);
                 result["img"] = e.target.parentElement.children[2].src;

@@ -1,9 +1,14 @@
 class dataModule {
     async getData (team:string, year:string){
-        team = "lakers"
-        year = "2020"
+    try{
+        // team = "lakers"
+        // year = "2020"
     let result = await $.get(`http://localhost:8040/players?team=${team}&year=${year}`)
     return result
+    }
+    catch(error){
+        return {"err":error}
+    }
    }
 
    async getFilteredData (){

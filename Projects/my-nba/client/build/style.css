@@ -112,6 +112,13 @@ input {
   align-items: center;
 }
 
+#error-message {
+  position: relative;
+  justify-self: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+
 .statistics-card {
   display: grid;
   grid-template-columns: 2fr 5fr;

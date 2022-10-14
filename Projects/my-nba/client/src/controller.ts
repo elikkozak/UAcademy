@@ -12,7 +12,11 @@ const renderer = new viewModule()
 getTeamButton.on("click",async function () {
     dataModuleGetter.getData(getTeamInput.value,getYearInput.value).then(
         (result:any)=>{
-            renderer.renderPage(result)            
+            if (!("err" in result ))
+                renderer.renderPage(result)      
+            else{
+                renderer.renderError(result)
+            }      
         }
     )
 
@@ -39,7 +43,7 @@ $(".players-cards").on("click",".player-card",async function (e) {
         const playerName:string = e.target.parentElement.children[0].textContent.toLowerCase()
 
         
-        const [l_name,f_name] = playerName.split(" ")
+        const [f_name,l_name] = playerName.split(" ")
         dataModuleGetter.getStatsData(f_name,l_name).then(
             (result:any)=>{
                 result["name"] = toTitleCase(playerName)
