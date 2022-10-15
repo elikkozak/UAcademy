@@ -1,4 +1,3 @@
-import json
 import requests
 import uvicorn
 from fastapi import FastAPI, Request, HTTPException, status
@@ -62,7 +61,7 @@ async def get_player_data(team, year):
     player_data_req = requests.get(
         f'http://data.nba.net/10s/prod/v1/{year}/players.json')
     filtered_data = list(filter(
-        lambda player_data: player_data["teamId"] == team_to_ids.get(team,0), player_data_req.json()["league"]["standard"]))
+        lambda player_data: player_data["teamId"] == team_to_ids.get(team, 0), player_data_req.json()["league"]["standard"]))
     data_holder = filtered_data
     is_data_init = True
     if not filtered_data:
@@ -87,7 +86,7 @@ def get_player_with_birthday():
 def get_player_stats(l_name, f_name):
     player_stats_req = requests.get(
         f'https://nba-players.herokuapp.com/players-stats/{l_name}/{f_name}')
-    
+
     return player_stats_req.json()
 
 
@@ -99,19 +98,18 @@ def get_dream_team():
 @app.post("/dreamTeam")
 async def add_player_to_dream_team(request: Request):
     global dream_team_players
-    da = await request.form()
-    da = jsonable_encoder(da)
-    dream_team_players.append(da)
-    # return dream_team_players
+    plauer_data = await request.form()
+    plauer_data = jsonable_encoder(plauer_data)
+    dream_team_players.append(plauer_data)
 
 
 @app.delete("/dreamTeam")
 async def remove_player_from_dream_team(request: Request):
     global dream_team_players
-    da = await request.form()
-    da = jsonable_encoder(da)
+    plauer_data = await request.form()
+    plauer_data = jsonable_encoder(plauer_data)
     dream_team_players = list(
-        filter(lambda player: player["name"] != da["name"], dream_team_players))
+        filter(lambda player: player["name"] != plauer_data["name"], dream_team_players))
 
 
 if __name__ == "__main__":
