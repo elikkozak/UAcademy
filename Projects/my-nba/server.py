@@ -83,11 +83,11 @@ def get_player_with_birthday():
     return players_data_list
 
 
-@app.get("/players/stats")
+@app.get("/players/stats", status_code=status.HTTP_200_OK)
 def get_player_stats(l_name, f_name):
     player_stats_req = requests.get(
         f'https://nba-players.herokuapp.com/players-stats/{l_name}/{f_name}')
-
+    
     return player_stats_req.json()
 
 

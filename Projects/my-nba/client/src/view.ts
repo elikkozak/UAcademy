@@ -49,4 +49,11 @@ class viewModule{
         $("#lightBox").append(newHTML)
     }
 
+    renderLightBoxError(){
+        $("#lightBox").addClass("active")
+        const newHTML = $(document.createElement('img'))
+        newHTML.attr('src', "https://pbs.twimg.com/media/DDPKLHNVwAA87D5.jpg");
+        $("#lightBox").children().remove()
+        $("#lightBox").append(newHTML)
+    }
 }

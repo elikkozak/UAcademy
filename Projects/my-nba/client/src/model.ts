@@ -1,10 +1,8 @@
 class dataModule {
     async getData (team:string, year:string){
     try{
-        // team = "lakers"
-        // year = "2020"
-    let result = await $.get(`http://localhost:8040/players?team=${team}&year=${year}`)
-    return result
+        let result = await $.get(`http://localhost:8040/players?team=${team}&year=${year}`)
+        return result
     }
     catch(error){
         return {"err":error}
@@ -17,9 +15,14 @@ class dataModule {
 }
 
 async getStatsData (f_name:string,l_name:string){
-    let result = await $.get(`http://localhost:8040/players/stats?l_name=${l_name}&f_name=${f_name}`)
-    return result
-   
+    try{
+        let result = await $.get(`http://localhost:8040/players/stats?l_name=${l_name}&f_name=${f_name}`)
+        return result
+    }
+   catch(error){
+        return {"err":error}
+
+   }
 }
 
 addPlayerToDreamTeam(playerObj:any){

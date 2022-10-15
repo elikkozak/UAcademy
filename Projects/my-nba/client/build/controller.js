@@ -46,9 +46,14 @@ $(".players-cards").on("click", ".player-card", function (e) {
             const playerName = e.target.parentElement.children[0].textContent.toLowerCase();
             const [f_name, l_name] = playerName.split(" ");
             dataModuleGetter.getStatsData(f_name, l_name).then((result) => {
-                result["name"] = toTitleCase(playerName);
-                result["img"] = e.target.parentElement.children[2].src;
-                renderer.renderLightBox(result);
+                if (!("err" in result)) {
+                    result["name"] = toTitleCase(playerName);
+                    result["img"] = e.target.parentElement.children[2].src;
+                    renderer.renderLightBox(result);
+                }
+                else {
+                    renderer.renderLightBoxError();
+                }
             });
         }
     });
