@@ -17,5 +17,6 @@ class Animal:
     def get_food_quantity(self):
         return self.food_quantity
 
-    
-   
+
+
+        
