@@ -18,6 +18,14 @@ class Animal:
         return self.food_quantity
 
     def eat(self):
-        print(f"{self.name} the {self.species} is eating {self.food_quantity}KG of {self.food_type}")
+        print(
+            f"{self.name} the {self.species} is eating {self.food_quantity}KG of {self.food_type}.")
 
+    def set_food_type(self, food_type):
+        self.food_type = food_type
 
+    def set_food_quantity(self, food_quantity):
+        self.food_quantity = food_quantity
+
+    def __str__(self):
+        return f"Hi, I am {self.name} the {self.species}."
