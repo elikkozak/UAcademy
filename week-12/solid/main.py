@@ -14,3 +14,4 @@ zoo_animals = [simba,nala,willy,akka,hedwig,nemo,marlin]
 
 my_zoo = Zoo(zoo_animals)
 my_zoo.set_defualt_amount_of_food_for_two_weeks()
+my_zoo.feed_all_animals()

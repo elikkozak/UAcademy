@@ -17,5 +17,7 @@ class Animal:
     def get_food_quantity(self):
         return self.food_quantity
 
+    def eat(self):
+        print(f"{self.name} the {self.species} is eating {self.food_quantity}KG of {self.food_type}")
 
 
