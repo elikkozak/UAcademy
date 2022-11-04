@@ -1,12 +1,15 @@
 import React, { Component } from "react";
+import Letter from "./Letter";
 
 class Solution extends Component {
   render() {
     return (
       <div>
-        {new Array(4).fill(<span>_ </span>)}
+        {
+        [...this.props.solution.word].map((letter,index) => <Letter key = {index} letter ={letter} />)
+        }
         <div>
-          <em>HINT HERE</em>
+          <em>{this.props.solution.hint}</em>
         </div>
       </div>
     );
