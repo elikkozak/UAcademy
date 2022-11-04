@@ -13,6 +13,11 @@ class App extends Component {
     super();
     this.state = {
       letterStatus: this.generateLetterStatuses(),
+      solution: {
+        word: "word",
+        hint: "hint",
+      },
+      score: 100,
     };
   }
 
@@ -21,14 +26,18 @@ class App extends Component {
     for (let i = A_ASCII_CODE; i <= Z_ASCII_CODE; i++) {
       myObj[String.fromCharCode(i)] = false;
     }
-    return myObj
+    return myObj;
   }
 
   render() {
     return (
       <div className="App">
-        <Score /> <Solution />
-        <Letters />
+        <Score score={this.state.score} />
+        <Solution
+          letterStatus={this.state.letterStatus}
+          solution={this.state.solution}
+        />
+        <Letters letterStatus={this.state.letterStatus} />
       </div>
     );
   }
