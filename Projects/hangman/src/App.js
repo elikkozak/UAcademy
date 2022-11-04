@@ -14,8 +14,8 @@ class App extends Component {
     this.state = {
       letterStatus: this.generateLetterStatuses(),
       solution: {
-        word: "word",
-        hint: "hint",
+        word: "BYTES",
+        hint: "HINT",
       },
       score: 100,
     };
