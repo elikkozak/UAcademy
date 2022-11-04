@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Letter extends Component {
   render() {
     return (
-      <span>
+      <span className={this.props.isSelcted ? "selected" : null}>
         {this.props.letter}
       </span>
     );
