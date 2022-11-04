@@ -4,7 +4,7 @@ class Letter extends Component {
   render() {
     return (
       <div>
-        a
+        {this.props.letter}
       </div>
     );
   }
