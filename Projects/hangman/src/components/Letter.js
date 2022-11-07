@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 
 class Letter extends Component {
+  selectLetter = () => {
+    this.props.selectLetter(this.props.letter);
+  };
   render() {
     return (
-      <span className={this.props.isSelcted ? "selected" : null}>
+      <span onClick={this.selectLetter} className={this.props.isSelcted ? "selected" : null}>
         {this.props.letter}
       </span>
     );
