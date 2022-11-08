@@ -31,23 +31,24 @@ class App extends Component {
     return letterStatus;
   }
 
-  isGameWon = (letterStatus) => {
-    // [...this.state.solution.word].forEach((letter) => {
-    //   if (!this.state.letterStatus[letter]) {
-    //     return false;
-    //   }
-    // });
-
+  isGameWon = () => {
     for (const letter of this.state.solution.word) {
-      if (!letterStatus[letter]){
-        return false
+      if (!this.state.letterStatus[letter]) {
+        return false;
       }
-  }
-
+    }
     return true;
   };
 
-  updateScore = (letterStatus,letter) => {
+  isGameOver = () => {
+    if (this.state.score <= 0 || this.isGameWon()) {
+      this.setState({
+        gameFinished: true,
+      });
+    }
+  };
+
+  updateScore = (letter) => {
     let newScore = 0;
     if (this.state.solution.word.includes(letter)) {
       newScore = this.state.score + 5;
@@ -57,23 +58,18 @@ class App extends Component {
     this.setState({
       score: newScore,
     });
-
-    if (newScore <= 0 || this.isGameWon(letterStatus)) {
-      this.setState({
-        gameFinished: true,
-      });
-    }
   };
 
   selectLetter = (letter) => {
     if (!this.state.letterStatus[letter]) {
+      this.updateScore(letter)
       let letterStatusNew = { ...this.state.letterStatus };
       letterStatusNew[letter] = true;
       this.setState(
         {
           letterStatus: letterStatusNew,
         },
-        this.updateScore(letterStatusNew,letter)
+        this.isGameOver
       );
     }
   };
