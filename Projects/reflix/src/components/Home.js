@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 class Home extends Component {
   render() {
-    return <div></div>;
+    return <div>
+        Home
+    </div>;
   }
 }
 
