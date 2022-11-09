@@ -4,11 +4,7 @@ import Movies from "./Movies";
 
 class Catalog extends Component {
   render() {
-    return (
-      <div>
-        <Movies movies={this.props.movies} />
-      </div>
-    );
+    return <div>{this.props.movie.title}</div>;
   }
 }
 
