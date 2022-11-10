@@ -4,7 +4,12 @@ import Movies from "./Movies";
 
 class Movie extends Component {
   render() {
-    return <div>{this.props.movie.title}</div>;
+    let currMovie = this.props.movie;
+    return (
+      <Link to={`/movies/${currMovie.id}`}>
+        <div>{currMovie.title}</div>
+      </Link>
+    );
   }
 }
 

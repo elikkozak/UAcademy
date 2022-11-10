@@ -4,7 +4,7 @@ import Movie from "./Movie";
 
 class MovieDescription extends Component {
   render() {
-    return <div></div>;
+    return <div>{this.props.movie.title}</div>;
   }
 }
 

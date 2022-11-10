@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Catalog from "./components/Catalog";
+import MovieDescription from "./components/MovieDescription";
 
 class App extends Component {
   constructor() {
@@ -71,8 +72,15 @@ class App extends Component {
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
         },
       ],
+      currUser: null,
     };
   }
+  changeCurrUser = (newUser) => {
+    this.setState({
+      currUser: newUser,
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -81,8 +89,24 @@ class App extends Component {
             <Link to="/">Home</Link>
             <Link to="/catalog">Catalog</Link>
           </div>
-          <Route exact path="/" render={() => <Home users = {this.state.users}/>} />
-          <Route exact path="/catalog" render={() => <Catalog movies = {this.state.movies} />} />
+          <Route
+            exact
+            path="/"
+            render={() => <Home users={this.state.users} />}
+          />
+          <Route
+            exact
+            path="/catalog"
+            render={() => <Catalog movies={this.state.movies} />}
+          />
+
+          <Route
+            exact
+            path="/movies/:id"
+            render={({ match }) => (
+              <MovieDescription movie={this.state.movies[match.params.id]} />
+            )}
+          />
         </div>
       </Router>
     );
