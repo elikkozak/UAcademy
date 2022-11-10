@@ -5,7 +5,7 @@ import Movie  from "./Movie";
 
 class Movies extends Component {
     render() {
-        return this.props.movies.map(movie =><Movie movie = {movie}/>)
+        return (this.props.movies.map(movie =><Movie movie = {movie}/>))
       }
 }
 
