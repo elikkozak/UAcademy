@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import  '../styles/user.css'
-
+import { Link } from "react-router-dom";
+import "../styles/user.css";
 
 class User extends Component {
   render() {
-    return <div>
-		<div class="profile">
-            {this.props.user.name}
+    return (
+      <Link to={"/catalog"}>
+        <div class="profile">
+          <p>{this.props.user.name}</p>
         </div>
-    </div>;
+      </Link>
+    );
   }
 }
 
