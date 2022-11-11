@@ -81,6 +81,15 @@ class App extends Component {
     });
   };
 
+  toggleMovieRent = (movieId) => {
+    let newMoviesObj = [...this.state.movies];
+    let chosenMovie = newMoviesObj[movieId];
+    chosenMovie.isRented = !chosenMovie.isRented;
+    this.setState({
+      movies: newMoviesObj,
+    });
+  };
+
   render() {
     return (
       <Router>
@@ -97,7 +106,12 @@ class App extends Component {
           <Route
             exact
             path="/catalog"
-            render={() => <Catalog movies={this.state.movies} />}
+            render={() => (
+              <Catalog
+                movies={this.state.movies}
+                toggleMovieRent={this.toggleMovieRent}
+              />
+            )}
           />
 
           <Route
