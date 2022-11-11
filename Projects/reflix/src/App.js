@@ -79,7 +79,6 @@ class App extends Component {
     if (typeof newUserId === "object") {
       newUserId = null;
     }
-    console.log(newUserId)
     this.setState({
       currUser: newUserId,
     });
@@ -100,9 +99,13 @@ class App extends Component {
         <div className="App">
           <div id="main-links">
             <Link to="/" onClick={this.changeCurrUser}>
-              Home
+              <span>Home</span>
             </Link>
-            <Link to="/catalog">Catalog</Link>
+            {this.state.currUser === null ? null : (
+              <Link to="/catalog">
+                <span>Catalog</span>
+              </Link>
+            )}
           </div>
           <Route
             exact

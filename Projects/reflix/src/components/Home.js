@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import User from "./User";
+import "../styles/home.css";
 
 class Home extends Component {
   changeCurrUser = (newUserId) => {
@@ -7,9 +8,14 @@ class Home extends Component {
   };
 
   render() {
-    return this.props.users.map((user) => (
-      <User changeCurrUser={this.changeCurrUser} user={user} />
-    ));
+    return (
+      <div className="wrapper">
+        <h1>Who's Watching?</h1>{" "}
+        {/* {this.props.users.map((user) => (
+          <User changeCurrUser={this.changeCurrUser} user={user} />
+        ))} */}
+      </div>
+    );
   }
 }
 
