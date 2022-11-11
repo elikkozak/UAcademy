@@ -75,9 +75,13 @@ class App extends Component {
       currUser: null,
     };
   }
-  changeCurrUser = (newUser) => {
+  changeCurrUser = (newUserId) => {
+    if (typeof newUserId === "object") {
+      newUserId = null;
+    }
+    console.log(newUserId)
     this.setState({
-      currUser: newUser,
+      currUser: newUserId,
     });
   };
 
@@ -95,13 +99,20 @@ class App extends Component {
       <Router>
         <div className="App">
           <div id="main-links">
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={this.changeCurrUser}>
+              Home
+            </Link>
             <Link to="/catalog">Catalog</Link>
           </div>
           <Route
             exact
             path="/"
-            render={() => <Home users={this.state.users} />}
+            render={() => (
+              <Home
+                users={this.state.users}
+                changeCurrUser={this.changeCurrUser}
+              />
+            )}
           />
           <Route
             exact
