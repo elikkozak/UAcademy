@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Movies from "./Movies";
+import "../styles/movie.css";
 
 class Movie extends Component {
   toggleMovieRent = () => {
@@ -11,15 +11,15 @@ class Movie extends Component {
   render() {
     let currMovie = this.props.movie;
     return (
-      <div>
+      <div className="movie">
         <Link to={`/movies/${currMovie.id}`}>
-          <div>
-            <span>{currMovie.title}</span>
-          </div>
+          <img src={currMovie.img} />
+          <p>{currMovie.title}</p>
         </Link>
-        <div>
-          <button onClick={this.toggleMovieRent}> {currMovie.title}</button>
-        </div>
+        <i
+          className={`fa ${this.props.isRented ? "fa-minus" : "fa-plus"}`}
+          onClick={this.toggleMovieRent}
+        ></i>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 class renderUser {
   userProfileCreator(userId, userName) {
     return (
-      <div>
+      <div class="profile">
         {(() => {
           switch (userId) {
             case 0:
@@ -120,7 +120,9 @@ class renderUser {
                           <path
                             d="M89.5 66.67c13.55 0 27.1-5.93 40.66-17.78 1.3-.53 2.58-.2 3.87 1 1.3 1.17 1.3 2.7 0 4.54C119.5 67.48 104.67 74 89.5 74c-15.17 0-30-6.52-44.53-19.56-1.3-1.85-1.3-3.37 0-4.55 1.3-1.2 2.58-1.53 3.87-1C62.4 60.73 75.94 66.66 89.5 66.66z"
                             id="smile"
-                          ></path>
+                          >
+                            
+                          </path>
                         </g>
                       </g>
                     </g>
@@ -130,7 +132,7 @@ class renderUser {
             case 3:
               return <div class="profile-icon profile4"></div>;
             default:
-              return null;
+                return null
           }
         })()}
         <div class="profile-name">{userName}</div>

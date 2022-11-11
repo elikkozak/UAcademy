@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import Movie from "./Movie";
+import "../styles/movies.css";
+
 
 class Movies extends Component {
   toggleMovieRent = (movieId) => {
@@ -8,7 +9,20 @@ class Movies extends Component {
   };
 
   render() {
-    return this.props.movies.map((movie) => <Movie key ={movie.id} movie={movie} toggleMovieRent = {this.toggleMovieRent} />);
+    return (
+      <div className="movies-container">
+        <div className="movies">
+          {this.props.movies.map((movie) => (
+            <Movie
+              key={movie.id}
+              movie={movie}
+              toggleMovieRent={this.toggleMovieRent}
+              isRented={movie.isRented}
+            />
+          ))}
+        </div>
+      </div>
+    );
   }
 }
 
