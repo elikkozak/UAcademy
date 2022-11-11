@@ -11,9 +11,15 @@ class Home extends Component {
     return (
       <div className="wrapper">
         <h1>Who's Watching?</h1>{" "}
-        {/* {this.props.users.map((user) => (
-          <User changeCurrUser={this.changeCurrUser} user={user} />
-        ))} */}
+        <div className="profile-wrap">
+          {this.props.users.map((user) => (
+            <User
+              key={user.id}
+              changeCurrUser={this.changeCurrUser}
+              user={user}
+            />
+          ))}
+        </div>
       </div>
     );
   }

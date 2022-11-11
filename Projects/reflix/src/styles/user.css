@@ -1,0 +1,56 @@
+.profile {
+  width: 150px;
+}
+.profile-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 800px;
+  margin: 50px auto;
+}
+.profile-name {
+  margin: 20px 0;
+  line-height: 1.25em;
+  transition: all 300ms ease;
+  color: #6d6d6d;
+}
+.profile-icon {
+  width: 150px;
+  height: 150px;
+  border: 6px solid #1f1f1f;
+  transition: all 300ms ease;
+}
+
+.profile1 > #left-brow {
+  transform-origin: center 80%;
+}
+.profile1 > #sunglasses {
+  transform-origin: center 100%;
+}
+.profile1 > #mustache {
+  transform-origin: center 90%;
+}
+svg {
+  width: "150px";
+  height: "150px";
+}
+
+.profile2 > #right-eye-top {
+  transform-origin: center bottom;
+}
+
+.profile2 > #gillard {
+  transform-origin: center bottom;
+}
+
+.profile4 {
+  background-image: url("https://i.gyazo.com/aa72f20bdacb2e23beb7b065a6b43739.png");
+  background-size: cover;
+}
+
+.profile:hover .profile-icon {
+	border: 6px solid #EBECEC;
+}
+.profile:hover .profile-name {
+	color: #EBECEC;
+}
