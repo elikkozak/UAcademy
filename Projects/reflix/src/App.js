@@ -48,7 +48,7 @@ class App extends Component {
         },
         {
           id: 4,
-          isRented: false,
+          isRented: true,
           title: "Beauty and the Beast",
           year: 2016,
           img: "https://images-na.ssl-images-amazon.com/images/I/51ArFYSFGJL.jpg",
@@ -59,7 +59,7 @@ class App extends Component {
       users: [
         {
           id: 0,
-          name: "Dekel",
+          name: "Elik",
           balance: 1000,
           avatar:
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
@@ -71,8 +71,23 @@ class App extends Component {
           avatar:
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
         },
+        {
+          id: 2,
+          name: "Shalev",
+          balance: 1000,
+          avatar:
+            "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
+        },
+        {
+          id: 3,
+          name: "Dekel",
+          balance: 1000,
+          avatar:
+            "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
+        },
       ],
       currUser: null,
+      showCatalog: false,
     };
   }
   changeCurrUser = (newUserId) => {
@@ -81,6 +96,11 @@ class App extends Component {
     }
     this.setState({
       currUser: newUserId,
+    });
+  };
+  toggleShowCatalog = () => {
+    this.setState({
+      showCatalog: !this.state.showCatalog,
     });
   };
 
@@ -101,11 +121,11 @@ class App extends Component {
             <Link to="/" onClick={this.changeCurrUser}>
               <span>Home</span>
             </Link>
-            {this.state.currUser === null ? null : (
-              <Link to="/catalog">
+            {this.state.showCatalog ? (
+              <Link to="/catalog" onClick={this.toggleShowCatalog}>
                 <span>Catalog</span>
               </Link>
-            )}
+            ) : null}
           </div>
           <Route
             exact
@@ -124,6 +144,7 @@ class App extends Component {
               <Catalog
                 movies={this.state.movies}
                 toggleMovieRent={this.toggleMovieRent}
+                toggleShowCatalog={this.toggleShowCatalog}
               />
             )}
           />
@@ -132,7 +153,9 @@ class App extends Component {
             exact
             path="/movies/:id"
             render={({ match }) => (
-              <MovieDescription movie={this.state.movies[match.params.id]} />
+              <div>
+                <MovieDescription movie={this.state.movies[match.params.id]} />
+              </div>
             )}
           />
         </div>

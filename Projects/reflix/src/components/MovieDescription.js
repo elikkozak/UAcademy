@@ -6,6 +6,7 @@ import "../styles/movieDescription.css";
 class MovieDescription extends Component {
   render() {
     return (
+      
       <div className="movie-description">
         <p id="title-description">
           {this.props.movie.title} ({this.props.movie.year})

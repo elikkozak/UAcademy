@@ -8,11 +8,15 @@ class Movie extends Component {
     this.props.toggleMovieRent(movieId);
   };
 
+  toggleShowCatalog = () => {
+    this.props.toggleShowCatalog();
+  };
+
   render() {
     let currMovie = this.props.movie;
     return (
       <div className="movie">
-        <Link to={`/movies/${currMovie.id}`}>
+        <Link to={`/movies/${currMovie.id}`} onClick={this.toggleShowCatalog}>
           <img src={currMovie.img} />
           <p>{currMovie.title}</p>
         </Link>

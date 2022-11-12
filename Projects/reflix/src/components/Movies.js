@@ -8,6 +8,10 @@ class Movies extends Component {
     this.props.toggleMovieRent(movieId);
   };
 
+  toggleShowCatalog = () => {
+    this.props.toggleShowCatalog();
+  };
+
   render() {
     let rentedMovies = this.props.movies.filter((movie) => movie.isRented);
     let unRentedMovies = this.props.movies.filter((movie) => !movie.isRented);
@@ -17,24 +21,17 @@ class Movies extends Component {
           <RentedMovies
             movies={rentedMovies}
             toggleMovieRent={this.toggleMovieRent}
+            toggleShowCatalog = {this.toggleShowCatalog}
           />
         ) : null}
         {unRentedMovies.length > 0 ? (
           <UnRentedMovies
             movies={unRentedMovies}
             toggleMovieRent={this.toggleMovieRent}
+            toggleShowCatalog = {this.toggleShowCatalog}
+
           />
         ) : null}
-        {/* <div className="movies"> */}
-        {/* {this.props.movies.map((movie) => (
-            <Movie
-              key={movie.id}
-              movie={movie}
-              toggleMovieRent={this.toggleMovieRent}
-              isRented={movie.isRented}
-            />
-          ))} */}
-        {/* </div> */}
       </div>
     );
   }

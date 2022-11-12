@@ -6,6 +6,9 @@ class UnRentedMovies extends Component {
   toggleMovieRent = (movieId) => {
     this.props.toggleMovieRent(movieId);
   };
+  toggleShowCatalog = () => {
+    this.props.toggleShowCatalog();
+  };
 
   render() {
     return (
@@ -18,6 +21,7 @@ class UnRentedMovies extends Component {
               movie={movie}
               toggleMovieRent={this.toggleMovieRent}
               isRented={movie.isRented}
+              toggleShowCatalog={this.toggleShowCatalog}
             />
           ))}
         </div>
