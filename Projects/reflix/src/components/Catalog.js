@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Movies from "./Movies";
+import SearchBar from "./SearchBar";
 
 class Catalog extends Component {
   toggleMovieRent = (movieId) => {
@@ -12,7 +13,7 @@ class Catalog extends Component {
   render() {
     return (
       <div>
-        <input id="movie-name-input" placeholder="Search" />
+        <SearchBar />
         <Movies
           movies={this.props.movies}
           toggleMovieRent={this.toggleMovieRent}
