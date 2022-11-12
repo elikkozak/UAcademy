@@ -7,6 +7,7 @@ class Catalog extends Component {
   };
 
   render() {
+    
     return (
       <div>
         Catalog
