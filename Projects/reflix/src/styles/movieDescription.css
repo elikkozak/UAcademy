@@ -1,0 +1,29 @@
+.movie-description {
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 5fr 1fr;
+  height: 400px;
+
+  align-items: center;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.movie-description img {
+  position: relative;
+  height: 100%;
+  width: 30%;
+  align-items: center;
+  justify-self: center;
+}
+
+.movie-description p {
+  margin-left: 30px;
+  margin-right: 30px;
+  color: white;
+  font-size: 10px;
+}
+
+#title-description {
+  text-align: center;
+}
