@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Budget from "./Budget";
 import Movies from "./Movies";
 import SearchBar from "./SearchBar";
 
@@ -11,9 +12,7 @@ class Catalog extends Component {
   }
 
   inputHandler = (e) => {
-    console.log(e);
     let newValue = e.target.value;
-    console.log(newValue);
     this.setState({ title: newValue });
   };
 
@@ -28,6 +27,7 @@ class Catalog extends Component {
     return (
       <div>
         <SearchBar title={this.state.title} inputHandler={this.inputHandler} />
+        <Budget budget={this.props.user.balance} />
         <Movies
           title={this.state.title}
           movies={this.props.movies}

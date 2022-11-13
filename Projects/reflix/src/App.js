@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Catalog from "./components/Catalog";
 import MovieDescription from "./components/MovieDescription";
-import logoCreator from "./styles/logo";
 import ReactCurvedText from "react-curved-text";
+
+const NO_BALANCE = 0;
+const UNRENT_FEE = 3;
+const RENT_FEE = -3;
 
 class App extends Component {
   constructor() {
@@ -110,7 +113,19 @@ class App extends Component {
     let newMoviesObj = [...this.state.movies];
     let chosenMovie = newMoviesObj[movieId];
     chosenMovie.isRented = !chosenMovie.isRented;
+
+    let feeToAddToBalance = chosenMovie.isRented ? UNRENT_FEE : RENT_FEE;
+
+    let allUsers = [...this.state.users];
+    let currUser = allUsers[this.state.currUser];
+    if (currUser.balance - feeToAddToBalance < NO_BALANCE) {
+      alert("Out of budget, please add more money or return some movies");
+      return;
+    }
+    currUser.balance -= feeToAddToBalance;
+
     this.setState({
+      users: allUsers,
       movies: newMoviesObj,
     });
   };
@@ -174,6 +189,7 @@ class App extends Component {
                 movies={this.state.movies}
                 toggleMovieRent={this.toggleMovieRent}
                 toggleShowCatalog={this.toggleShowCatalog}
+                user={this.state.users[this.state.currUser]}
               />
             )}
           />
