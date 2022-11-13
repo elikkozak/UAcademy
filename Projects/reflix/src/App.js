@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Catalog from "./components/Catalog";
 import MovieDescription from "./components/MovieDescription";
+import logoCreator from "./styles/logo";
+import ReactCurvedText from "react-curved-text";
 
 class App extends Component {
   constructor() {
@@ -117,8 +119,35 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <p id="logo">
+            <ReactCurvedText
+              width={100}
+              height={100}
+              cx="40"
+              cy="30"
+              rx={77}
+              ry={30}
+              startOffset={60}
+              reversed={true}
+              text="REFLIX"
+              textProps={{
+                style: {
+                  fontFamily: "Bebas Neue",
+                  fontSize: "30",
+                  fill: "red",
+                },
+              }}
+              tspanProps={{ dy: "25" }}
+            />
+          </p>
           <div id="main-links">
-            <Link to="/" onClick={this.changeCurrUser}>
+            <Link
+              to="/"
+              onClick={function () {
+                this.changeCurrUser();
+                this.toggleShowCatalog();
+              }}
+            >
               <span>Home</span>
             </Link>
             {this.state.showCatalog ? (
