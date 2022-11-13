@@ -13,23 +13,28 @@ class Movies extends Component {
   };
 
   render() {
-    let rentedMovies = this.props.movies.filter((movie) => movie.isRented);
-    let unRentedMovies = this.props.movies.filter((movie) => !movie.isRented);
+    let movies = this.props.movies;
+    let moviesBySearch = ""
+      ? movies
+      : movies.filter((movie) =>
+          movie.title.toLowerCase().includes(this.props.title.toLowerCase())
+        );
+    let rentedMovies = moviesBySearch.filter((movie) => movie.isRented);
+    let unRentedMovies = moviesBySearch.filter((movie) => !movie.isRented);
     return (
       <div className="all-movies-container">
         {rentedMovies.length > 0 ? (
           <RentedMovies
             movies={rentedMovies}
             toggleMovieRent={this.toggleMovieRent}
-            toggleShowCatalog = {this.toggleShowCatalog}
+            toggleShowCatalog={this.toggleShowCatalog}
           />
         ) : null}
         {unRentedMovies.length > 0 ? (
           <UnRentedMovies
             movies={unRentedMovies}
             toggleMovieRent={this.toggleMovieRent}
-            toggleShowCatalog = {this.toggleShowCatalog}
-
+            toggleShowCatalog={this.toggleShowCatalog}
           />
         ) : null}
       </div>
