@@ -53,7 +53,7 @@ class App extends Component {
         },
         {
           id: 4,
-          isRented: true,
+          isRented: false,
           title: "Beauty and the Beast",
           year: 2016,
           img: "https://images-na.ssl-images-amazon.com/images/I/51ArFYSFGJL.jpg",
@@ -65,28 +65,28 @@ class App extends Component {
         {
           id: 0,
           name: "Elik",
-          balance: 1000,
+          balance: 9,
           avatar:
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
         },
         {
           id: 1,
           name: "Ohad",
-          balance: 1000,
+          balance: 9,
           avatar:
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
         },
         {
           id: 2,
           name: "Shalev",
-          balance: 1000,
+          balance: 9,
           avatar:
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
         },
         {
           id: 3,
           name: "Dekel",
-          balance: 1000,
+          balance: 9,
           avatar:
             "https://vignette.wikia.nocookie.net/disney-fan-fiction/images/4/42/Tarzan_2004_cover.jpg/revision/latest?cb=20140331030811",
         },
