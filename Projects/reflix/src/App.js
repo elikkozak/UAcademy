@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Catalog from "./components/Catalog";
+import Home from "./components/Home/Home";
+import Catalog from "./components/Catalog/Catalog";
 import MovieDescription from "./components/MovieDescription";
 import ReactCurvedText from "react-curved-text";
 

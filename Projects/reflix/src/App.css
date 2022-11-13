@@ -29,11 +29,13 @@
 a {
   cursor: pointer;
   color: red;
+  font-family: "Bebas Neue";
+  font-size: 25px;
 }
 
 #logo {
   position: absolute;
-  color: white  ;
+  color: white;
 }
 
 #logo svg {
@@ -41,4 +43,8 @@ a {
   right: -870px;
   top: -10px;
   color: white;
+}
+
+.App {
+  width: 900px;
 }
