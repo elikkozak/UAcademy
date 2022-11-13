@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import User from "./User";
-import "../styles/home.css";
+
+import "../../styles/home.css";
 
 class Home extends Component {
   changeCurrUser = (newUserId) => {

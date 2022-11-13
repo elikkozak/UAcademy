@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import RentedMovies from "./RentedMovies";
 import UnRentedMovies from "./UnRentedMovies";
-import "../styles/movies.css";
+import "../../styles/movies.css";
 
 class Movies extends Component {
   toggleMovieRent = (movieId) => {

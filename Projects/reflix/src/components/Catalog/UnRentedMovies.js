@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Movie from "./Movie";
-import "../styles/movies.css";
+import "../../styles/movies.css";
 
 class UnRentedMovies extends Component {
   toggleMovieRent = (movieId) => {

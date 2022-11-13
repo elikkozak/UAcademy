@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../styles/user.css";
-import renderUser from "../styles/user.js";
+import renderUser from "../../styles/user.js";
+import "../../styles/user.css";
 
 class User extends Component {
   constructor() {

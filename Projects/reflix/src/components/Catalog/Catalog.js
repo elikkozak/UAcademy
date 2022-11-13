@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Budget from "./Budget";
 import Movies from "./Movies";
 import SearchBar from "./SearchBar";
+import "../../styles/catalog.css"
 
 class Catalog extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class Catalog extends Component {
 
   render() {
     return (
-      <div>
+      <div className="catalog">
         <SearchBar title={this.state.title} inputHandler={this.inputHandler} />
         <Budget budget={this.props.user.balance} />
         <Movies

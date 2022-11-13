@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "../styles/movie.css";
+import "../../styles/movie.css";
 
 class Movie extends Component {
   toggleMovieRent = () => {

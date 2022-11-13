@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import "../styles/searchBar.css";
+import "../../styles/searchBar.css";
 
 class SearchBar extends Component {
   // inputHandler = () => {
